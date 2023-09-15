@@ -1,0 +1,46 @@
+.header {
+  height: 400px;
+}
+
+.header::before {
+  height: 400px;
+  width: 100%;
+  background-image: url("../img/green.jpg");
+  background-size: 100% 100%;
+  position: absolute;
+  content: "";
+  opacity: 0.3;
+}
+
+.menu-name {
+  display: flex;
+  align-items: center;
+  height: 30%;
+}
+
+.grmenu {
+  margin: 30px;
+  position: relative;
+}
+
+.site-name {
+  vertical-align: middle;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.header-text {
+  margin: 0 30%;
+  height: 70%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-row {
+  margin: 18px;
+  font-style: italic;
+  font-size: large;
+  font-weight: 500;
+}
