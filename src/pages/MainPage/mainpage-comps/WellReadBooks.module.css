@@ -1,0 +1,11 @@
+.wrb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text1 {
+  font-weight: bolder;
+  font-size: x-large;
+  margin-bottom: 1vh;
+}

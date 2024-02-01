@@ -1,0 +1,6 @@
+.report {
+  display: flex;
+  flex-direction: column;
+  padding-top: 5%;
+  align-items: center;
+}

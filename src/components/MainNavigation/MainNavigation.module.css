@@ -1,0 +1,31 @@
+.nav {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(149, 186, 138, 0.578);
+}
+
+.site-name {
+  font-size: xx-large;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+.sidebar {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 6;
+  transition: 0.5s;
+  margin-top: 60px;
+  align-self: flex-start;
+}
+
+.grmenu {
+  margin: 10px 25px;
+  z-index: 5;
+}
+.grmenu:hover {
+  cursor: pointer;
+}

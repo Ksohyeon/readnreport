@@ -1,0 +1,64 @@
+.sidebar {
+  width: 20%;
+  height: 100vh;
+  background-color: rgb(183, 183, 183, 0.5);
+  padding: 30px;
+}
+
+.grmenu {
+  margin: 2em;
+}
+
+.grmenu:hover {
+  cursor: pointer;
+}
+
+.mot {
+  text-align: center;
+  line-height: 2em;
+  margin: 7%;
+  padding: 10%;
+  border-radius: 20px;
+  background-color: rgba(152, 152, 152, 0.7);
+}
+
+.btn1 {
+  text-align: center;
+  font-weight: bold;
+  margin: 10%;
+  padding: 3%;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: rgb(183, 183, 183);
+}
+
+.btn2 {
+  text-align: center;
+  font-weight: 500;
+  margin: 10%;
+  padding: 3%;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: rgb(205, 205, 205);
+}
+
+.text-link {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.profile-img {
+  margin: auto;
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgb(133, 255, 194);
+}
+
+.user-name {
+  text-align: center;
+  font-weight: bolder;
+  margin: 20%;
+  margin-top: 10%;
+}

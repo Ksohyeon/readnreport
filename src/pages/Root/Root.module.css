@@ -1,0 +1,11 @@
+.main-nav {
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+}
+
+.main {
+  position: relative;
+  top: 0px;
+  z-index: 1;
+}

@@ -1,0 +1,127 @@
+.bs {
+  height: 37vh;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.bs::before {
+  height: 50vh;
+  width: 100vw;
+  background-image: url("../../img/green.jpg");
+  background-size: cover;
+  position: absolute;
+  content: "";
+  opacity: 0.7;
+}
+
+.div1 {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-name {
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.site-name {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  font-size: 40px;
+  font-weight: 700;
+}
+.grmenu {
+  margin: 30px;
+  position: relative;
+}
+.grmenu:hover {
+  cursor: pointer;
+}
+.report-btn {
+  color: inherit;
+  text-decoration: inherit;
+  background-color: black;
+  height: fit-content;
+  padding: 10px 15px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bolder;
+  align-self: center;
+  position: absolute;
+  margin-top: 10vh;
+  right: 3vw;
+}
+.report-btn:hover {
+  cursor: pointer;
+}
+
+.book-shelf {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  width: 70vw;
+  height: 24vh;
+  border: 30px;
+  border-style: solid;
+  border-color: #564b32;
+  background-color: rgb(174, 159, 142);
+  display: flex;
+  flex-direction: row;
+}
+.book {
+  box-sizing: border-box;
+  width: 3vw;
+  height: 100%;
+  padding: 5px;
+  background-color: blueviolet;
+  writing-mode: vertical-lr;
+  font-weight: bolder;
+}
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  transition: 0.5s;
+}
+
+.bookmark {
+  position: absolute;
+  right: 0;
+  translate: 0 -30px;
+}
+
+.div2 {
+  margin: 5vh 5vw;
+}
+.reports {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.report {
+  /* box-sizing: border-box; */
+  display: inline-block;
+  width: 130px;
+  height: 200px;
+  background-size: cover;
+}
+
+.link {
+  width: 130px;
+  margin: 3vh 3vw;
+}

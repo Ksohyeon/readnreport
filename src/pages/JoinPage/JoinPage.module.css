@@ -1,0 +1,54 @@
+.join {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.text {
+  text-align: center;
+  margin-top: 5em;
+}
+
+.form {
+  width: 27em;
+  top: 0%;
+  left: 50%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, 20%);
+}
+
+.input {
+  height: 3em;
+  margin: 0.7em 0;
+  padding: 0.5em;
+  width: 100%;
+  border-style: none;
+  border-radius: 20px;
+  background-color: rgb(224, 224, 224);
+}
+
+.btn {
+  width: 60%;
+  margin: 1em 0;
+  padding: 0.7em;
+  border-style: none;
+  border-radius: 20px;
+  color: aliceblue;
+  font-size: medium;
+  font-weight: bolder;
+  background-color: rgb(100, 100, 100);
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.warn-text {
+  font-size: small;
+  align-self: flex-start;
+}

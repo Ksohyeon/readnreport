@@ -1,0 +1,32 @@
+.kw {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+}
+
+.keywords {
+  width: 58vw;
+  background-color: rgb(240, 240, 240);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.col {
+  width: 11vw;
+  padding: 20px 0;
+  text-align: center;
+  display: inline-block;
+  background-color: rgb(220, 220, 220);
+}
+
+.text1 {
+  font-weight: bolder;
+  font-size: x-large;
+  margin-bottom: 1vh;
+}

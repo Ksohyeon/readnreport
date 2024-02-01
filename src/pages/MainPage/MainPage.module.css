@@ -1,0 +1,22 @@
+.main {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  background: url("../../img/green.jpg") center fixed;
+  background-size: cover;
+}
+
+.search-bar {
+  margin: 5vh 0 0;
+  position: absolute;
+}
+
+.element1 {
+  margin: 15vh 0 0;
+}
+
+.element {
+  margin: 8vh 0 0;
+}

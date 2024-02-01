@@ -1,0 +1,59 @@
+.search-bar {
+  width: 30vw;
+  height: 4vh;
+  background-color: white;
+}
+
+.search-input {
+  width: 27vw;
+  height: 100%;
+  outline: none;
+  border: none;
+  color: #175d19;
+  background-color: white;
+  font-weight: bold;
+  padding: 0;
+}
+
+.submit {
+  width: 3vw;
+  height: 0%;
+  outline: none;
+  border: none;
+  background-color: white;
+}
+
+.search-btn:hover {
+  cursor: pointer;
+}
+
+.recommend {
+  width: 30vw;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  background-color: #d1f1d2bc;
+  font-size: small;
+  border: 1px solid #91b792;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+}
+
+.book-img {
+  height: 60px;
+  margin-right: 10%;
+}
+.book-img:hover {
+  height: 250px;
+}
+
+.author,
+.title {
+  display: block;
+  margin: 0 5%;
+}
