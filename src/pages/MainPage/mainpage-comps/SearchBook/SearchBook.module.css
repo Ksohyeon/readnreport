@@ -54,6 +54,11 @@
 
 .author,
 .title {
-  display: block;
+  display: inline;
   margin: 0 5%;
+}
+
+.text1 {
+  font-weight: bolder;
+  color: #eb6e01;
 }

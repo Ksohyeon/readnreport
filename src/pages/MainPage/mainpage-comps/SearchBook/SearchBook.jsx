@@ -60,11 +60,20 @@ function SearchBook() {
       </form>
       <div className={styles["recommend"]} id="recommend">
         {referenceItems?.map((item) => {
+          const idx = item.title.indexOf(searchContent.current.value);
+          const len = searchContent.length;
+          const before = item.title.substring(0, idx);
+          const after = item.title.substring(idx + 1);
           return (
             <div className={styles["item"]} key={item.isbn}>
               <img src={item.image} className={styles["book-img"]} />
-              <span></span>
-              <span className={styles["title"]}>{item.title}</span>
+              <div className={styles["title"]}>
+                {before}
+                <span className={styles["text1"]}>
+                  {searchContent.current.value}
+                </span>
+                {after}
+              </div>
               <span className={styles["author"]}>{item.author}</span>
               {/* <span className={styles["text1"]}></span> */}
             </div>
