@@ -17,7 +17,6 @@
 
 .submit {
   width: 3vw;
-  height: 0%;
   outline: none;
   border: none;
   background-color: white;
@@ -34,28 +33,49 @@
 }
 
 .item {
+  height: 5vh;
+  width: 28.8vw;
   background-color: #d1f1d2bc;
   font-size: small;
-  border: 1px solid #91b792;
-  padding: 5px;
+  border: 0.1vw solid #91b792;
+  padding: 0.5vw;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: start;
 }
-
+.img {
+  width: 20%;
+}
 .book-img {
-  height: 60px;
-  margin-right: 10%;
+  height: 5vh;
+  display: inline;
+  z-index: 1;
 }
 .book-img:hover {
   height: 250px;
+  position: relative;
+  z-index: 2;
+  top: 105px;
+}
+
+.author {
+  width: 30%;
+}
+
+.title {
+  width: 50%;
 }
 
 .author,
 .title {
-  display: inline;
+  height: 5vh;
+  overflow: hidden;
+  /* white-space: nowrap;
+  text-overflow: ellipsis; */
+  position: relative;
   margin: 0 5%;
+  z-index: 1;
 }
 
 .text1 {

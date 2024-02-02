@@ -27,7 +27,7 @@ export function call(api, method, request) {
       if (response.status === 200 && response) {
         console.log(response);
         return response.json();
-      } else if (response.status === 403) {
+      } else if (response.status === 403 || response.status === 400) {
         window.location.href = "/login";
       } else {
         Promise.reject(response);

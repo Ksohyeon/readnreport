@@ -10,7 +10,6 @@ function SearchBook() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("submit: ", searchContent.current.value);
   };
 
   const handleChange = useCallback(
@@ -19,17 +18,18 @@ function SearchBook() {
       let searchResult = await searchBook(searchContent.current.value, 5);
       setReferenceItems(searchResult?.items);
     }, 1000),
-    []
+    [searchContent]
   );
 
   const clickEmpty = useCallback(() => {
     if (document.activeElement !== document.getElementById("searchBar")) {
-      document.getElementById("recommend").style.display = "none";
+      if (!document.getElementById("recommend")) return;
+      document.getElementById("recommend").style.visibility = "hidden";
     }
   }, []);
 
   const focusSearchBar = useCallback(() => {
-    document.getElementById("recommend").style.display = "inherit";
+    document.getElementById("recommend").style.visibility = "visible";
   }, []);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ function SearchBook() {
     document
       .getElementById("searchBar")
       .addEventListener("focus", focusSearchBar);
-  }, []);
+  }, [clickEmpty, focusSearchBar]);
 
   return (
     <>
@@ -61,12 +61,17 @@ function SearchBook() {
       <div className={styles["recommend"]} id="recommend">
         {referenceItems?.map((item) => {
           const idx = item.title.indexOf(searchContent.current.value);
-          const len = searchContent.length;
           const before = item.title.substring(0, idx);
           const after = item.title.substring(idx + 1);
           return (
             <div className={styles["item"]} key={item.isbn}>
-              <img src={item.image} className={styles["book-img"]} />
+              <div className={styles["img"]}>
+                <img
+                  src={item.image}
+                  className={styles["book-img"]}
+                  alt={item.title}
+                />
+              </div>
               <div className={styles["title"]}>
                 {before}
                 <span className={styles["text1"]}>
@@ -75,7 +80,6 @@ function SearchBook() {
                 {after}
               </div>
               <span className={styles["author"]}>{item.author}</span>
-              {/* <span className={styles["text1"]}></span> */}
             </div>
           );
         })}
