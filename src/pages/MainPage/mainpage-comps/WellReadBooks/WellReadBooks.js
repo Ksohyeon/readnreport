@@ -1,4 +1,4 @@
-import ImgSlider from "./ImgSlider";
+import ImgSlider from "../ImgSlider/ImgSlider";
 import styles from "./WellReadBooks.module.css";
 
 function WellReadBooks() {
@@ -31,7 +31,7 @@ function WellReadBooks() {
   return (
     <div className={styles["wrb"]}>
       <div className={styles["text1"]}>많이읽는 도서</div>
-      <ImgSlider slides={books} />
+      <ImgSlider books={books} />
     </div>
   );
 }

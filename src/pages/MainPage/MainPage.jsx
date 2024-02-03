@@ -1,5 +1,5 @@
 import styles from "./MainPage.module.css";
-import WellReadBooks from "./mainpage-comps/WellReadBooks";
+import WellReadBooks from "./mainpage-comps/WellReadBooks/WellReadBooks";
 import Keywords from "./mainpage-comps/Keywords";
 import WellReadReports from "./mainpage-comps/WellReadReports";
 import SearchBook from "./mainpage-comps/SearchBook/SearchBook";
