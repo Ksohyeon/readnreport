@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./ImgSlider.module.css";
 
 function ImgSlider({ books }) {
@@ -34,16 +34,14 @@ function ImgSlider({ books }) {
     moveSlide(currentIdx + 1);
   };
 
-  let timer = undefined;
-
-  const autoSlide = function () {
-    if (timer === undefined) {
-      timer = setInterval(() => {
-        moveSlide(currentIdx + 1);
-      }, 5000);
-    }
-  };
-  // autoSlide();
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      goToNext();
+    }, 5000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [currentIdx]);
 
   return (
     <>
