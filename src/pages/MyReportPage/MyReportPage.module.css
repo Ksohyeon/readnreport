@@ -30,8 +30,6 @@
   position: absolute;
   width: 100vw;
   left: 0;
-  display: flex;
-  flex-direction: row;
 }
 
 .site-name {
@@ -82,9 +80,9 @@
 .book {
   box-sizing: border-box;
   width: 3vw;
-  height: 100%;
+  height: 80%;
   padding: 5px;
-  background-color: blueviolet;
+  align-self: last baseline;
   writing-mode: vertical-lr;
   font-weight: bolder;
 }

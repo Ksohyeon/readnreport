@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "hambak";
+  font-style: "hambak";
+  src: url(./fonts/SF함박눈TTF.ttf);
+}
+
+@font-face {
+  font-family: "orbit";
+  font-style: "orbit";
+  src: url(./fonts/Orbit-Regular.ttf);
+}

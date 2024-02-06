@@ -70,6 +70,13 @@ function WriteReportPage() {
         <div className={styles["form"]}>
           <div className={styles["title"]}>
             <input
+              value={reportItem?.title || " "}
+              onChange={reportTitleChangeHandler}
+              type="text"
+              placeholder="독후감 제목"
+              className={styles["btw-input"]}
+            ></input>
+            <input
               value={reportItem?.bookTitle || " "}
               onChange={bookTitleChangeHandler}
               type="text"
@@ -77,13 +84,6 @@ function WriteReportPage() {
               className={styles["btw-input"]}
             ></input>
             <div className={styles["space"]}></div>
-            <input
-              value={reportItem?.title || " "}
-              onChange={reportTitleChangeHandler}
-              type="text"
-              placeholder="독후감 제목"
-              className={styles["btw-input"]}
-            ></input>
             <div className={styles["public-private-btn"]}>
               {reportItem?.publicOrPrivate && (
                 <button onClick={isPublicChanceHandler}>공개</button>

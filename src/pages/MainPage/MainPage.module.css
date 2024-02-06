@@ -9,14 +9,16 @@
 }
 
 .search-bar {
-  margin: 5vh 0 0;
+  margin: 12vh 0 0;
   position: absolute;
+  z-index: 2;
 }
 
 .element1 {
-  margin: 15vh 0 0;
+  margin: 22vh 0 0;
+  z-index: 1;
 }
 
 .element {
-  margin: 8vh 0 0;
+  margin: 7vh 0 0;
 }

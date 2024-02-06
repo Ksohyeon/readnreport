@@ -2,10 +2,19 @@ import { Outlet } from "react-router-dom";
 import styles from "./Root.module.css";
 import MainNavigation from "../../components/MainNavigation/MainNavigation";
 import SideBar from "../../components/SideBar/SideBar";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { closeSideBar } from "../../features/sideBar/sideBarSlice";
 
 function RootLayout() {
   const sideBar = useSelector((state) => state.sideBar.isOpen);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    document.getElementById("main").addEventListener("click", () => {
+      if (sideBar) dispatch(closeSideBar());
+    });
+  });
 
   return (
     <>
@@ -20,7 +29,7 @@ function RootLayout() {
       >
         <SideBar />
       </div>
-      <main className={styles["main"]}>
+      <main id="main" className={styles["main"]}>
         <Outlet />
       </main>
     </>

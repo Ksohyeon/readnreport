@@ -51,8 +51,6 @@ li {
   height: 100%;
 }
 
-.prev .next {
-  font-weight: bolder;
-  font-size: 20px;
-  display: inline;
+.arrow:hover {
+  cursor: pointer;
 }
