@@ -10,34 +10,36 @@ function ImgSlider({ books }) {
   const slideMargin = 30;
   const slides = [...books, ...books, ...books];
 
-  const moveSlide = function (num) {
-    setSlideX(-num * (slideWidth + slideMargin));
-    setCurrentIdx(num);
+  useEffect(() => {
+    setSlideX(-currentIdx * (slideWidth + slideMargin));
 
-    if (num === slideCount * 2 || num === -slideCount * 2) {
-      setTimeout(() => {
+    let timer1 = undefined;
+    if (currentIdx === slideCount * 2 || currentIdx === -slideCount * 2) {
+      timer1 = setTimeout(() => {
         handleAnimate.current = false;
         setSlideX(0);
         setCurrentIdx(0);
       }, 500);
-      setTimeout(() => {
-        handleAnimate.current = true;
-      }, 600);
     }
-  };
+    return () => {
+      clearTimeout(timer1);
+    };
+  }, [currentIdx]);
 
   const goToPrevious = () => {
-    moveSlide(currentIdx - 1);
+    handleAnimate.current = true;
+    setCurrentIdx(currentIdx - 1);
   };
 
   const goToNext = () => {
-    moveSlide(currentIdx + 1);
+    handleAnimate.current = true;
+    setCurrentIdx(currentIdx + 1);
   };
 
   useEffect(() => {
     let timer = setTimeout(() => {
       goToNext();
-    }, 5000);
+    }, 4000);
     return () => {
       clearTimeout(timer);
     };
