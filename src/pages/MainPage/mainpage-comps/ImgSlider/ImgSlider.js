@@ -60,9 +60,9 @@ function ImgSlider({ books }) {
               left: slideX,
             }}
           >
-            {slides?.map((book) => {
+            {slides?.map((book, index) => {
               return (
-                <li key={book.title}>
+                <li key={index}>
                   <img
                     className={styles["book-img"]}
                     src={book.url}

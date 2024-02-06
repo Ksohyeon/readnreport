@@ -1,4 +1,3 @@
-import SideBar from "../SideBar/SideBar";
 import styles from "./MainNavigation.module.css";
 import { GrMenu } from "react-icons/gr";
 import { Link } from "react-router-dom";
@@ -23,15 +22,6 @@ function MainNavigation() {
             독서와 기록
           </Link>
         </span>
-        <div
-          className={styles["sidebar"]}
-          style={{
-            transform: sideBar ? "translateX(0)" : "translateX(-100%)",
-            transition: "0.7s",
-          }}
-        >
-          <SideBar />
-        </div>
       </div>
     </>
   );

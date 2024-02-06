@@ -5,7 +5,14 @@
 }
 
 .main {
-  position: relative;
+  position: absolute;
   top: 0px;
   z-index: 1;
+}
+
+.sidebar {
+  width: fit-content;
+  position: relative;
+  z-index: 2;
+  transition: 0.5s ease-in-out;
 }
