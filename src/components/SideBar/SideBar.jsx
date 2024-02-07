@@ -28,22 +28,22 @@ function SideBar() {
         <div>
           <div className={styles["profile-img"]}></div>
           <div className={styles["user-name"]}>김유저</div>
-          <div>
-            <div className={styles["btn2"]}>
+          <div className={styles["buttons"]}>
+            <div className={styles["btn"]}>
               <Link className={styles["text-link"]} to="/bookshelf">
                 나의 기록
               </Link>
             </div>
-            <div className={styles["btn2"]}>
+            <div className={styles["btn"]}>
               <Link className={styles["text-link"]} to="/calendar">
                 독서 달력
               </Link>
             </div>
-            <div className={styles["btn2"]}>프로필 변경</div>
-            <div className={styles["btn2"]}>나의 독서친구</div>
-          </div>
-          <div className={styles["btn1"]} onClick={signout}>
-            로그아웃
+            <div className={styles["btn"]}>프로필 변경</div>
+            <div className={styles["btn"]}>나의 독서친구</div>
+            <div className={`${styles.btn} ${styles.logout}`} onClick={signout}>
+              로그아웃
+            </div>
           </div>
         </div>
       )}
