@@ -8,8 +8,11 @@ function ImgSlider({ books }) {
   const [currentIdx, setCurrentIdx] = useState(0);
   const handleAnimate = useRef(true);
   const slideCount = 3;
-  const slideWidth = 200;
-  const slideMargin = 30;
+  // console.log(window.innerWidth);
+  const windowWidth = window.innerWidth;
+  const slideWidth = windowWidth > 992 ? 200 : windowWidth < 600 ? 100 : 120;
+  const slideMargin = windowWidth > 992 ? 30 : windowWidth < 600 ? 15 : 18;
+  const slideArrow = windowWidth > 992 ? 15 : windowWidth < 600 ? 10 : 12;
   const slides = [...books, ...books, ...books];
 
   useEffect(() => {
@@ -51,7 +54,7 @@ function ImgSlider({ books }) {
     <>
       <div className={styles["slide"]}>
         <div className={styles["prev"]} onClick={goToPrevious}>
-          <BiSolidLeftArrow className={styles["arrow"]} />
+          <BiSolidLeftArrow size={slideArrow} className={styles["arrow"]} />
         </div>
         <div className={styles["slide-wrapper"]}>
           <ul
@@ -76,7 +79,7 @@ function ImgSlider({ books }) {
           </ul>
         </div>
         <div onClick={goToNext}>
-          <BiSolidRightArrow className={styles["arrow"]} />
+          <BiSolidRightArrow size={slideArrow} className={styles["arrow"]} />
         </div>
       </div>
     </>
