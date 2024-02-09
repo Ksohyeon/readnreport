@@ -1,0 +1,12 @@
+.report {
+  box-sizing: border-box;
+  padding: 2% 3%;
+  margin: 3% 0;
+  border-radius: 2em;
+  background-color: rgb(235, 255, 242);
+}
+
+.title {
+  margin-bottom: 1%;
+  font-weight: bolder;
+}
