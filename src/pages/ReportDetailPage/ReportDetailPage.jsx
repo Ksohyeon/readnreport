@@ -34,15 +34,14 @@ function ReportDetailPage() {
       {reportItem && (
         <div className={styles["report"]}>
           <div className={styles["div1"]}>
-            <MdOutlineKeyboardDoubleArrowLeft
-              className={styles["btn-back"]}
-              size={40}
-            />
-            <Link
-              to={{ pathname: "/bookshelf" }}
-              className={styles["btn-back"]}
-            >
-              <button className={styles["btn-back"]}>목록</button>
+            <Link to={{ pathname: "/bookshelf" }} className={styles["link"]}>
+              <button className={styles["btn-back"]}>
+                <MdOutlineKeyboardDoubleArrowLeft
+                  className={styles["back-arrow"]}
+                  size={40}
+                />
+                <div className={styles["text-list"]}>목록</div>
+              </button>
             </Link>
           </div>
           <div className={styles["report-wapper"]}>
