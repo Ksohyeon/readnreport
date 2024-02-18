@@ -13,6 +13,7 @@ import CreateReportPage from "./pages/CreateReportPage/CreateReportPage";
 import ReportDetailPage from "./pages/ReportDetailPage/ReportDetailPage";
 import { useDispatch } from "react-redux";
 import { login, logout } from "./features/auth/authSlice";
+import SearchResultPage from "./pages/SearchResultPage/SearchResultPage";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
       { path: "calendar", element: <CalendarPage /> },
       { path: "write", element: <CreateReportPage /> },
       { path: "detail", element: <ReportDetailPage /> },
+      { path: "search-result", element: <SearchResultPage /> },
     ],
   },
 ]);

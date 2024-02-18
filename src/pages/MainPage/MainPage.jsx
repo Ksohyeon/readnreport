@@ -1,7 +1,7 @@
 import styles from "./MainPage.module.css";
 import WellReadBooks from "./mainpage-comps/WellReadBooks/WellReadBooks";
-import WellReadReports from "./mainpage-comps/WellReadReports";
-import SearchBook from "./mainpage-comps/SearchBook/SearchBook";
+import WellReadReports from "./mainpage-comps/WellReadReports/WellReadReports";
+import SearchBook from "../../components/SearchBook/SearchBook";
 import InfiniteReport from "./mainpage-comps/InfiniteReport/InfiniteReport";
 
 function MainPage() {

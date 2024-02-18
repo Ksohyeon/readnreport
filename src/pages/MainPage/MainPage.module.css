@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   height: auto;
-  background: url("../../img/green.jpg") center fixed;
+  background-color: rgb(243, 255, 243);
   background-size: cover;
 }
 

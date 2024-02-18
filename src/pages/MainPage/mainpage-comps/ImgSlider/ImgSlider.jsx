@@ -1,18 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./ImgSlider.module.css";
-import { BiSolidLeftArrow } from "react-icons/bi";
-import { BiSolidRightArrow } from "react-icons/bi";
+import { IoIosArrowDropleft } from "react-icons/io";
+import { IoIosArrowDropright } from "react-icons/io";
 
 function ImgSlider({ books }) {
+  const [slideFocus, setSlideFocus] = useState(true);
   const [slideX, setSlideX] = useState(0);
   const [currentIdx, setCurrentIdx] = useState(0);
   const handleAnimate = useRef(true);
   const slideCount = 3;
-  // console.log(window.innerWidth);
   const windowWidth = window.innerWidth;
   const slideWidth = windowWidth > 992 ? 200 : windowWidth < 600 ? 100 : 120;
   const slideMargin = windowWidth > 992 ? 30 : windowWidth < 600 ? 15 : 18;
-  const slideArrow = windowWidth > 992 ? 15 : windowWidth < 600 ? 10 : 12;
+  const slideArrow = windowWidth > 992 ? 45 : windowWidth < 600 ? 30 : 36;
   const slides = [...books, ...books, ...books];
 
   useEffect(() => {
@@ -42,6 +42,12 @@ function ImgSlider({ books }) {
   };
 
   useEffect(() => {
+    document.getElementById("slide").addEventListener("mouseover", () => {
+      setSlideFocus(true);
+    });
+    document.getElementById("slide").addEventListener("mouseout", () => {
+      setSlideFocus(false);
+    });
     let timer = setTimeout(() => {
       goToNext();
     }, 4000);
@@ -52,9 +58,24 @@ function ImgSlider({ books }) {
 
   return (
     <>
-      <div className={styles["slide"]}>
-        <div className={styles["prev"]} onClick={goToPrevious}>
-          <BiSolidLeftArrow size={slideArrow} className={styles["arrow"]} />
+      <div id="slide" className={styles["slide"]}>
+        <div
+          id="arrow"
+          className={`${styles.arrowwrapper} ${
+            slideFocus ? styles.appear : styles.disappear
+          }`}
+          style={{ opacity: slideFocus ? 1 : 0 }}
+        >
+          <IoIosArrowDropleft
+            onClick={goToPrevious}
+            size={slideArrow}
+            className={styles["arrow"]}
+          />
+          <IoIosArrowDropright
+            onClick={goToNext}
+            className={styles["arrow"]}
+            size={slideArrow}
+          />
         </div>
         <div className={styles["slide-wrapper"]}>
           <ul
@@ -77,9 +98,6 @@ function ImgSlider({ books }) {
               );
             })}
           </ul>
-        </div>
-        <div onClick={goToNext}>
-          <BiSolidRightArrow size={slideArrow} className={styles["arrow"]} />
         </div>
       </div>
     </>
