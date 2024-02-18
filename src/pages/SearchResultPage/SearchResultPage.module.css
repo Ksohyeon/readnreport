@@ -1,0 +1,60 @@
+.searchbook {
+  position: relative;
+  margin: 10vh 10vw 2vh;
+  z-index: 2;
+  float: right;
+}
+
+.ul {
+  position: absolute;
+  width: 80vw;
+  top: 15vh;
+  border-radius: 20px;
+  background-color: rgb(227, 239, 234);
+  margin: 3vh 10vw;
+  z-index: 1;
+}
+
+.ul > li {
+  padding: 2vh 2vw;
+  border-radius: 20px;
+}
+.ul > li > li:not(:last-child) {
+  margin-bottom: 1vh;
+}
+
+.book:hover {
+  background-color: rgb(219, 229, 225);
+  cursor: pointer;
+}
+
+.book-img {
+  width: 150px;
+  margin-right: 2vw;
+  clear: left;
+  float: left;
+}
+
+.enter {
+  clear: left;
+}
+
+.modal {
+  position: fixed;
+  margin: 0 auto;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+}
+.modalwrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(83, 83, 83, 0.626);
+  z-index: 3;
+}
+
+.close {
+  display: none;
+}

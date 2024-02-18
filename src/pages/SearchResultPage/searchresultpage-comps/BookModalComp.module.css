@@ -1,0 +1,96 @@
+li {
+  font-family: "orbit";
+}
+
+@keyframes modal-open {
+  0% {
+    transform: scale(0, 0.025);
+  }
+  50% {
+    transform: scale(1, 0.025);
+  }
+}
+
+@keyframes modal-close {
+  0% {
+    transform: scale(1, 0.025);
+  }
+  50% {
+    transform: scale(0, 0.025);
+  }
+}
+
+@keyframes content-hide {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.modal {
+  box-sizing: border-box;
+  border-radius: 30px;
+  background-color: rgb(230, 221, 239);
+  width: 70vw;
+  height: 70vh;
+  padding: 2vh 2vw;
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.modal::-webkit-scrollbar {
+  display: none;
+}
+
+.open {
+  transform: scale(1);
+  animation: modal-open 0.5s;
+}
+
+.close {
+  transform: scale(0);
+  animation: modal-close 0.5s;
+}
+
+.book {
+  width: fit-content;
+  height: fit-content;
+  animation: content-hide 0.5s;
+}
+
+.book-img {
+  width: 170px;
+  position: relative;
+  float: left;
+  margin: 1vh 2vw 3vh 1vw;
+}
+
+.modal li {
+  margin: 1vh 1vw;
+}
+
+.modal li:last-child {
+  clear: left;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px 25px;
+  margin: 2vh 2vw;
+}
+
+.close-btn {
+  position: absolute;
+  top: 2vh;
+  right: 1.5vw;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 15px;
+}
+
+.close-btn:hover {
+  cursor: pointer;
+  color: blueviolet;
+}

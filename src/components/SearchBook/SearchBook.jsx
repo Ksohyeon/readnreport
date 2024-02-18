@@ -2,11 +2,13 @@ import { useRef, useState, useCallback, useEffect } from "react";
 import styles from "./SearchBook.module.css";
 import { FaSearch } from "react-icons/fa";
 import { throttle } from "lodash";
-import { searchBook } from "../../../../service/ApiService";
+import { searchBook } from "../../service/ApiService";
+import { useNavigate } from "react-router-dom";
 
 function SearchBook() {
-  const searchContent = useRef("");
+  const searchContent = useRef();
   const [referenceItems, setReferenceItems] = useState();
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,8 +16,9 @@ function SearchBook() {
 
   const handleChange = useCallback(
     throttle(async () => {
-      if (!searchContent) return;
+      if (!searchContent?.current?.value) return;
       let searchResult = await searchBook(searchContent.current.value, 5);
+      console.log(searchResult);
       setReferenceItems(searchResult?.items);
     }, 1000),
     [searchContent]
@@ -37,6 +40,24 @@ function SearchBook() {
     document
       .getElementById("searchBar")
       .addEventListener("focus", focusSearchBar);
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "Enter" &&
+        document.activeElement.id === "searchBar" &&
+        searchContent.current != undefined &&
+        searchContent.current.value !== ""
+      ) {
+        console.log(searchContent.current.value);
+        const query = searchContent.current.value;
+        let flag = false;
+        if (window.location.pathname === "/search-result") flag = true;
+        navigate({
+          pathname: "/search-result",
+          search: `?query=${query}`,
+        });
+        if (flag) window.location.reload();
+      }
+    });
   }, [clickEmpty, focusSearchBar]);
 
   return (
@@ -58,6 +79,7 @@ function SearchBook() {
           <FaSearch className={styles["search-btn"]} />
         </button>
       </form>
+
       <div className={styles["recommend"]} id="recommend">
         {referenceItems?.map((item) => {
           const idx = item.title.indexOf(searchContent.current.value);
