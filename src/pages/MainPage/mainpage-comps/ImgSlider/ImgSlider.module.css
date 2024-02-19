@@ -8,30 +8,43 @@ li {
 }
 
 .slide {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
   padding: 2vh 1vw;
-  background-color: rgba(165, 165, 165, 0.484);
+  background-color: #d6d6d674;
+}
+
+.slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slide-wrapper {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.arrowwrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 @media (min-width: 992px) {
   .slide {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     border-radius: 20px;
     width: 700px;
   }
   .slide-wrapper {
-    position: relative;
     height: 250px;
     width: 660px;
-    margin: 0 auto;
-    overflow: hidden;
   }
   .slides {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 4110px;
     transform: translateX(-1380px);
   }
@@ -48,35 +61,48 @@ li {
   .arrowwrapper {
     height: 250px;
     width: 690px;
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
   }
 }
 
-@media (max-width: 991px), (min-width: 601px) {
+@media (max-width: 991px) and (min-width: 601px) {
+  .slide {
+    border-radius: 20px;
+    width: 420px;
+  }
+  .slide-wrapper {
+    height: 150px;
+    width: 396px;
+  }
+  .slides {
+    width: 2466px;
+    transform: translateX(-828px);
+  }
+  .slides li {
+    width: 120px;
+    height: 150px;
+    float: left;
+  }
+
+  .slides li:not(:last-child) {
+    margin-right: 18px;
+  }
+
+  .arrowwrapper {
+    height: 250px;
+    width: 420px;
+  }
 }
 
 @media (max-width: 600px) {
   .slide {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     border-radius: 10px;
     width: 350px;
   }
   .slide-wrapper {
-    position: relative;
     height: 125px;
     width: 330px;
-    margin: 0 auto;
-    overflow: hidden;
   }
   .slides {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 2055px;
     transform: translateX(-690px);
   }
@@ -92,10 +118,6 @@ li {
   .arrowwrapper {
     height: 125px;
     width: 360px;
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
   }
 }
 
@@ -133,7 +155,7 @@ li {
 }
 
 .disappear {
-  animation: fade-out 0.3s ease-in-out;
+  animation: fade-out 0.5s ease-in-out;
   animation-fill-mode: forwards;
   z-index: 1;
 }

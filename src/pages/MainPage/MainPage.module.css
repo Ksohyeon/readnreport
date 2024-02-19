@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   height: auto;
-  background-color: rgb(243, 255, 243);
+  /* background-color: rgb(243, 255, 243); */
   background-size: cover;
 }
 
@@ -21,5 +21,13 @@
 }
 
 .element {
-  margin: 7vh 0 0;
+  margin: 10vh 0 0;
+  width: 100vw;
+  z-index: 1;
+}
+
+.canvas {
+  position: absolute;
+  width: 100vw;
+  margin-top: 7vh;
 }

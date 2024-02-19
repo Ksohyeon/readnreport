@@ -32,7 +32,7 @@ li {
 .modal {
   box-sizing: border-box;
   border-radius: 30px;
-  background-color: rgb(230, 221, 239);
+  background-color: rgb(207, 207, 207);
   width: 70vw;
   height: 70vh;
   padding: 2vh 2vw;
@@ -61,6 +61,9 @@ li {
   animation: content-hide 0.5s;
 }
 
+.book-title {
+}
+
 .book-img {
   width: 170px;
   position: relative;
@@ -72,6 +75,15 @@ li {
   margin: 1vh 1vw;
 }
 
+.modal li:not(:first-child) {
+  position: relative;
+  top: 1vh;
+}
+
+.modal li:not(:last-child) {
+  font-size: large;
+}
+
 .modal li:last-child {
   clear: left;
   background-color: white;
@@ -81,9 +93,10 @@ li {
 }
 
 .close-btn {
-  position: absolute;
-  top: 2vh;
-  right: 1.5vw;
+  position: relative;
+  float: right;
+  left: 1.5vw;
+  top: -1vh;
   border: none;
   width: 36px;
   height: 36px;

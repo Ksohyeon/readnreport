@@ -10,19 +10,20 @@ function BookModalComp({ book, setModalOpen }) {
       setModalOpen(false);
     }, 500);
   };
+
   return (
     <div className={`${styles.modal} ${open ? styles.open : styles.close}`}>
       <ul className={styles["book"]}>
+        <li>
+          <img src={book.image} className={styles["book-img"]} />
+        </li>
         <li>
           <IoIosCloseCircleOutline
             onClick={modalHandler}
             className={styles["close-btn"]}
           />
         </li>
-        <li>
-          <img src={book.image} className={styles["book-img"]} />
-        </li>
-        <li>{book.title}</li>
+        <li className={styles["book-title"]}>{book.title}</li>
         <li>{book.author}</li>
         <li>{book.publisher}</li>
         <li>{book.description}</li>

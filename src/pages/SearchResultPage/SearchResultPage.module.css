@@ -10,7 +10,7 @@
   width: 80vw;
   top: 15vh;
   border-radius: 20px;
-  background-color: rgb(227, 239, 234);
+  background-color: rgb(227, 242, 245);
   margin: 3vh 10vw;
   z-index: 1;
 }
@@ -24,7 +24,7 @@
 }
 
 .book:hover {
-  background-color: rgb(219, 229, 225);
+  background-color: rgb(214, 232, 236);
   cursor: pointer;
 }
 
