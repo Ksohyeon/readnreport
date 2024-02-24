@@ -58,3 +58,20 @@
 .close {
   display: none;
 }
+
+.no-result-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+.no-result {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  font-weight: bold;
+  padding: 2vh 2vw;
+  border-radius: 10px;
+  background-color: rgba(209, 209, 209, 0.353);
+}

@@ -1,6 +1,7 @@
 import styles from "./CanvasComp.module.css";
 import { useRef, useEffect, useCallback } from "react";
 import { SnowGroup } from "./thema/winter/WinterThema";
+import { SpringThema } from "./thema/spring/SpringThema";
 
 function CanvasComp() {
   const canvasRef = useRef();
@@ -12,7 +13,8 @@ function CanvasComp() {
 
   const animation = useCallback(() => {
     if (!canvasRef.current) return;
-    const thema = new SnowGroup(36, canvasRef.current, contextRef.current);
+    // const thema = new SnowGroup(36, canvasRef.current, contextRef.current);
+    const thema = new SpringThema(12, canvasRef.current, contextRef.current);
     thema.init();
     draw(thema);
   });
@@ -29,7 +31,7 @@ function CanvasComp() {
     <>
       <canvas
         width={window.innerWidth}
-        height={(window.innerHeight / 5) * 3}
+        height={(window.innerHeight / 3) * 2}
         ref={canvasRef}
         className={styles["canvas"]}
       ></canvas>

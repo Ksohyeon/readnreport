@@ -4,7 +4,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: rgba(120, 163, 176, 0.656);
+}
+
+.bgcolor {
+  background-color: #dbecf3;
+  transition: 0.2s ease-in;
 }
 
 .site-name {

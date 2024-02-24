@@ -9,7 +9,7 @@ function SearchResultPage() {
   const [searchParmas] = useSearchParams();
   const query = searchParmas.get("query");
 
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState(null);
   const [selectdBook, setSelectedBook] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -26,12 +26,23 @@ function SearchResultPage() {
     })();
   }, []);
 
-  if (books.length === 0)
+  if (books == null)
     return (
       <>
         <p>loading..</p>
       </>
     );
+
+  if (books.length === 0) {
+    return (
+      <div className={styles["no-result-wrapper"]}>
+        <div className={styles["searchbook"]}>
+          <SearchBook />
+        </div>
+        <div className={styles["no-result"]}>검색 결과가 없습니다</div>
+      </div>
+    );
+  }
 
   return (
     <>

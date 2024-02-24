@@ -25,7 +25,7 @@ export function call(api, method, request) {
   return fetch(options.url, options)
     .then((response) => {
       if (response.status === 200 && response) {
-        console.log(response);
+        console.log("api response: ", response);
         return response.json();
       } else if (response.status === 403 || response.status === 400) {
         window.location.href = "/login";

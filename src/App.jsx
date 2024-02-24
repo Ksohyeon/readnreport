@@ -37,7 +37,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  // const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const dispatch = useDispatch();
 
   const token = localStorage.getItem("ACCESS_TOKEN");

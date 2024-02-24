@@ -37,7 +37,6 @@ function InfiniteReport() {
 
   return (
     <>
-      {isFetching && <div>Loading...</div>}
       <InfiniteScroll
         className={styles["scroll"]}
         loadMore={() => {

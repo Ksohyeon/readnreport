@@ -4,24 +4,23 @@
   flex-direction: column;
   align-items: center;
   height: auto;
-  /* background-color: rgb(243, 255, 243); */
   background-size: cover;
 }
 
 .search-bar {
-  margin: 12vh 0 0;
+  margin: 10vh 0 0;
   position: absolute;
   z-index: 2;
 }
 
 .element1 {
-  margin: 22vh 0 0;
+  margin: 20vh 0 0;
   z-index: 1;
   width: 100vw;
 }
 
 .element {
-  margin: 10vh 0 0;
+  margin: 15vh 0 0;
   width: 100vw;
   z-index: 1;
 }
@@ -29,5 +28,4 @@
 .canvas {
   position: absolute;
   width: 100vw;
-  margin-top: 7vh;
 }

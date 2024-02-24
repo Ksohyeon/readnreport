@@ -75,7 +75,7 @@ li {
   margin: 1vh 1vw;
 }
 
-.modal li:not(:first-child) {
+.modal li:not(:first-child, :nth-child(6)) {
   position: relative;
   top: 1vh;
 }
@@ -92,6 +92,28 @@ li {
   margin: 2vh 2vw;
 }
 
+.option-btns {
+  position: relative;
+  top: 120px;
+  right: 1vw;
+}
+.option-btns button {
+  position: relative;
+  float: right;
+  margin: 0 0.5vw;
+  padding: 1vh 1vw;
+  border: none;
+  border-radius: 0.7em;
+  font-weight: bold;
+}
+.option-btns button:hover {
+  cursor: pointer;
+  color: blueviolet;
+  /* background-color: rgba(228, 228, 228, 0.899); */
+  transition: 0.2s ease-in-out;
+  opacity: 0.6;
+}
+
 .close-btn {
   position: relative;
   float: right;
@@ -101,6 +123,10 @@ li {
   width: 36px;
   height: 36px;
   border-radius: 15px;
+}
+
+.chosen {
+  background-color: gold;
 }
 
 .close-btn:hover {

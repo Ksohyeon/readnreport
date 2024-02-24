@@ -3,6 +3,7 @@ import WellReadBooks from "./mainpage-comps/WellReadBooks/WellReadBooks";
 import WellReadReports from "./mainpage-comps/WellReadReports/WellReadReports";
 import SearchBook from "../../components/SearchBook/SearchBook";
 import CanvasComp from "./mainpage-comps/CamvasComp/CanvasComp";
+import { useEffect } from "react";
 
 function MainPage() {
   return (
