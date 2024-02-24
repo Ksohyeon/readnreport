@@ -3,34 +3,38 @@ import { Link } from "react-router-dom";
 import styles from "./MyReportPage.module.css";
 import { ImBookmark } from "react-icons/im";
 import { call } from "../../service/ApiService";
-import { useDispatch, useSelector } from "react-redux";
-import { closeSideBar } from "../../features/sideBar/sideBarSlice";
+import { useQuery } from "@tanstack/react-query";
+
+const reportPerPage = 10;
 
 function MyReportPage() {
-  const [loading, setLoading] = useState(true);
-  const [reports, setReports] = useState();
-  const sideBar = useSelector((state) => state.sideBar.isOpen);
-  const dispatch = useDispatch();
+  const [books, setBooks] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const { data, isError, error, isLoading } = useQuery({
+    queryKey: ["reports", currentPage],
+    queryFn: () => call(`/report?display=${reportPerPage}&page=${currentPage}`),
+    staleTime: 2000,
+  });
+
+  const prevHandler = () => {
+    if (currentPage !== 1) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
+  };
+
+  const nextHandler = () => {
+    if (data.next !== -1) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
+  };
 
   useEffect(() => {
-    if (sideBar === true) dispatch(closeSideBar());
-  }, []);
-
-  useEffect(() => {
-    call("/report", "GET", null).then((response) => {
-      setReports(response?.data);
-      setLoading(false);
-      console.log("reports: ", response);
+    call("/mybook/all", "GET").then((response) => {
+      console.log(response);
+      setBooks(response?.data);
     });
   }, []);
-
-  if (loading) {
-    return (
-      <>
-        <h1>로딩중..</h1>
-      </>
-    );
-  }
 
   return (
     <div>
@@ -43,17 +47,17 @@ function MyReportPage() {
           </div>
 
           <div className={styles["book-shelf"]}>
-            {reports &&
-              reports.map((report) => {
+            {books &&
+              books.map((book) => {
                 const color =
                   "#" + parseInt(Math.random() * 0xffffff).toString(16);
                 return (
                   <div
-                    key={report.id}
+                    key={book.bookId}
                     className={styles["book"]}
                     style={{ backgroundColor: color }}
                   >
-                    {report.bookTitle}
+                    {book.bookTitle}
                   </div>
                 );
               })}
@@ -63,30 +67,34 @@ function MyReportPage() {
       </div>
       <div className={styles["div2"]}>
         <div className={styles["reports"]}>
-          {reports &&
-            reports.map((report) => {
-              const color =
-                "#" + parseInt(Math.random() * 0xffffff).toString(16);
+          {!isLoading &&
+            data.reports.map((report) => {
               return (
-                <Link
-                  key={report.id}
-                  className={styles["link"]}
-                  to={{
-                    pathname: "/detail",
-                    search: `?id=${report.id}`,
-                  }}
-                >
-                  <div
+                <div className={styles["report"]}>
+                  <Link
                     key={report.id}
-                    className={styles["report"]}
-                    style={{ backgroundColor: color }}
+                    to={{
+                      pathname: "/detail",
+                      search: `?id=${report.id}`,
+                    }}
                   >
-                    {report.title}
-                  </div>
-                </Link>
+                    <div className={styles["report-content"]}>
+                      <div>{report.title}</div>
+                      <div>{report.bookTitle}</div>
+                      <div>{report.views}</div>
+                      <div>{report.likeCnt}</div>
+                      <div>{report.createdAt.slice(0, 10)}</div>
+                      <div></div>
+                    </div>
+                  </Link>
+                </div>
               );
             })}
         </div>
+      </div>
+      <div className={styles["btns"]}>
+        <button onClick={prevHandler}>prev</button>
+        <button onClick={nextHandler}>next</button>
       </div>
     </div>
   );

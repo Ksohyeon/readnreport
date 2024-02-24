@@ -1,5 +1,5 @@
 .main-nav {
-  position: sticky;
+  position: fixed;
   top: 0px;
   height: 7vh;
   z-index: 3;
