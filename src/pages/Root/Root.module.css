@@ -26,7 +26,7 @@
   transition: 0.5s ease-in-out;
 }
 
-.btn-back-to-top {
+.btnBackToTop {
   display: none;
   position: fixed;
   bottom: 20px;
@@ -39,6 +39,10 @@
   cursor: pointer;
   padding: 15px;
   border-radius: 10px;
+}
+
+.btnDisplay {
+  display: none;
 }
 
 .btn-back-to-top:hover {
