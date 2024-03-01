@@ -1,0 +1,31 @@
+.book-shelf {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  width: 70vw;
+  height: 24vh;
+  border: 30px;
+  border-style: solid;
+  border-color: #564b32;
+  background-color: rgb(174, 159, 142);
+  display: flex;
+  flex-direction: row;
+}
+
+.book {
+  box-sizing: border-box;
+  width: 32px;
+  font-size: 20px;
+  height: 80%;
+  padding: 5px;
+  align-self: last baseline;
+  writing-mode: vertical-lr;
+  font-weight: bolder;
+  overflow: hidden;
+}
+
+.bookmark {
+  position: absolute;
+  right: 0;
+  translate: 0 -30px;
+}

@@ -1,0 +1,60 @@
+.div2 {
+  width: 75vw;
+  height: 50vh;
+  margin: 3vh 12vw 1vh;
+}
+.reports {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.report {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 13vw;
+  height: 20vh;
+  margin: 2vh 0;
+  background-size: cover;
+  text-decoration: none;
+  color: black;
+  font: 0.9em solid;
+  border-radius: 10px;
+  background-color: #eaf4f8;
+}
+.report a {
+  text-decoration-line: none;
+  color: black;
+}
+
+.report:not(:nth-child(5n)) {
+  margin-right: 2.5vw;
+}
+
+.report-content {
+  width: 100%;
+  height: 100%;
+  padding: 2vh 1.5vw;
+}
+
+.btns {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btns button {
+  border: none;
+  border-radius: 5px;
+  padding: 1vh 1vw;
+  margin: 0 0.5vw;
+}
+
+.btns button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #979797;
+}

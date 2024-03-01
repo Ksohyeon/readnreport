@@ -3,10 +3,11 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import InfiniteScroll from "react-infinite-scroller";
 import Report from "../../../../object/Report";
 import { call } from "../../../../service/ApiService";
+import React from "react";
 
 const fetchUrl = async (page) => {
   const response = await call(`/report/all?page=${page}`, "GET");
-  console.log(response);
+  console.log(response.body);
   return response;
 };
 
@@ -22,8 +23,8 @@ function InfiniteReport() {
   } = useInfiniteQuery({
     queryKey: ["all-reports"],
     queryFn: ({ pageParam = 1 }) => fetchUrl(pageParam),
-    getNextPageParam: (lastPage) => {
-      return lastPage.next !== -1 ? lastPage.next : undefined;
+    getNextPageParam: (data) => {
+      return data.next == -1 ? data.next : undefined;
     },
   });
 
@@ -44,9 +45,10 @@ function InfiniteReport() {
         }}
         hasMore={hasNextPage}
       >
-        {data.pages.map((pageData) => {
-          return pageData.reports.map((report) => (
+        {data?.pages.map((page) => {
+          return page.reports.map((report) => (
             <Report
+              key={report.id}
               title={report.title}
               bookTitle={report.bookTitle}
               createdAt={report.createdAt}
