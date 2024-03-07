@@ -1,7 +1,3 @@
-li {
-  font-family: "orbit";
-}
-
 @keyframes modal-open {
   0% {
     transform: scale(0, 0.025);
@@ -20,15 +16,6 @@ li {
   }
 }
 
-@keyframes content-hide {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
 .modal {
   box-sizing: border-box;
   border-radius: 30px;
@@ -41,10 +28,6 @@ li {
   scrollbar-width: none; /* Firefox */
 }
 
-.modal::-webkit-scrollbar {
-  display: none;
-}
-
 .open {
   transform: scale(1);
   animation: modal-open 0.5s;
@@ -55,10 +38,17 @@ li {
   animation: modal-close 0.5s;
 }
 
-.book {
-  width: fit-content;
-  height: fit-content;
-  animation: content-hide 0.5s;
+.close-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 1vh 1vw;
+  float: right;
+  background: none;
+}
+
+.close-btn:hover {
+  cursor: pointer;
+  color: blueviolet;
 }
 
 .book-img {
@@ -68,13 +58,22 @@ li {
   margin: 1vh 2vw 3vh 1vw;
 }
 
-.modal li {
-  margin: 1vh 1vw;
+.modal button {
+  position: relative;
+  float: right;
+  margin: 0 0.5vw;
+  padding: 1vh 1vw;
+  border: none;
+  border-radius: 0.7em;
+  font-weight: bold;
 }
 
-.modal li:not(:first-child, :nth-child(6)) {
-  position: relative;
-  top: 1vh;
+.modal button:hover {
+  cursor: pointer;
+}
+
+.modal li {
+  margin: 1vh 1vw;
 }
 
 .modal li:not(:last-child) {
@@ -89,43 +88,6 @@ li {
   margin: 2vh 2vw;
 }
 
-.option-btns {
-  position: relative;
-  top: 120px;
-  right: 1vw;
-}
-.option-btns button {
-  position: relative;
-  float: right;
-  margin: 0 0.5vw;
-  padding: 1vh 1vw;
-  border: none;
-  border-radius: 0.7em;
-  font-weight: bold;
-}
-.option-btns button:hover {
-  cursor: pointer;
-  color: blueviolet;
-  transition: 0.2s ease-in-out;
-  opacity: 0.6;
-}
-
-.close-btn {
-  position: relative;
-  float: right;
-  left: 1.5vw;
-  top: -1vh;
-  border: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 15px;
-}
-
 .chosen {
   background-color: gold;
-}
-
-.close-btn:hover {
-  cursor: pointer;
-  color: blueviolet;
 }

@@ -1,0 +1,68 @@
+.calender {
+  position: relative;
+  bottom: 2vh;
+  box-sizing: border-box;
+  width: 69vw;
+  height: 69vh;
+  padding: 2vh 3vw 3vh;
+  background-color: #f8efe2;
+  border-radius: 30px;
+}
+
+.day-list li {
+  display: inline-block;
+  width: 9vw;
+  height: 4vh;
+  text-align: center;
+}
+
+.container {
+  box-sizing: border-box;
+  width: 63vw;
+  height: 60vh;
+  display: grid;
+  grid-template-columns: repeat(7, 9vw);
+  grid-template-rows: repeat(6, 10vh);
+}
+
+.element {
+  display: inline-block;
+}
+
+.content {
+  box-sizing: border-box;
+  width: 96%;
+  height: 94%;
+  margin: 3% 2%;
+  padding: 3% 4%;
+  border-radius: 10px;
+  background-color: #fffbf678;
+  font-size: 0.7em;
+  white-space: nowrap;
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.content > div:nth-child(2) {
+  position: relative;
+  top: 2vh;
+  width: fit-content;
+}
+
+.date {
+  font-size: small;
+  height: 2vh;
+  position: fixed;
+}
+
+.start {
+  background-color: rgb(177, 215, 255);
+}
+.end {
+  background-color: rgb(255, 255, 178);
+}
+
+.thismonth {
+  background-color: #fffbf6;
+}
