@@ -31,20 +31,6 @@
   left: 0;
 }
 
-.site-name {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  font-size: 40px;
-  font-weight: 700;
-}
-.grmenu {
-  margin: 30px;
-  position: relative;
-}
-.grmenu:hover {
-  cursor: pointer;
-}
 .create-update-btn {
   color: inherit;
   text-decoration: inherit;
@@ -59,14 +45,19 @@
   margin-top: 7vh;
   right: 3vw;
 }
+
 .create-update-btn:hover {
   cursor: pointer;
 }
 
-.sidebar {
-  position: absolute;
+.modal-wrapper {
+  position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  width: 100vw;
   height: 100vh;
-  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(191, 191, 191, 0.364);
 }

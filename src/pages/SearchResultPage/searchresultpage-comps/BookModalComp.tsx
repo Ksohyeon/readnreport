@@ -22,12 +22,6 @@ function BookModalComp({ book, setModalOpen }: OwnProps) {
   const bookRef = useRef();
   const [isInBookShelf, setIsInBookShelf] = useState(false);
   const [open, setOpen] = useState(true);
-  const modalHandler = () => {
-    setOpen(false);
-    setTimeout(() => {
-      setModalOpen(false);
-    }, 500);
-  };
 
   const addBookHandler = () => {
     if (isInBookShelf) {
@@ -39,12 +33,28 @@ function BookModalComp({ book, setModalOpen }: OwnProps) {
         bookPublisher: book.publisher,
         bookImg: book.image,
         bookDesc: book.description,
-        isReading: false,
+        reading: false,
       };
       const response = call("/mybook", "POST", bookObj);
     }
     setIsInBookShelf((prev) => !prev);
   };
+
+  const modalHandler = () => {
+    setOpen(false);
+  };
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout | number;
+    if (!open) {
+      timer = setTimeout(() => {
+        setModalOpen(false);
+      }, 500);
+    }
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [open]);
 
   useEffect(() => {
     if (isLoggedIn) {

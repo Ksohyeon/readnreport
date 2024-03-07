@@ -75,3 +75,9 @@
   border-radius: 10px;
   background-color: rgba(209, 209, 209, 0.353);
 }
+
+.modal-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(209, 209, 209, 0.353);
+}
