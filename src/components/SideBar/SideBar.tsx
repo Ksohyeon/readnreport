@@ -48,8 +48,12 @@ const SideBar: React.FC = () => {
                 독서 달력
               </Link>
             </div>
+            <div className={styles["btn"]}>
+              <Link className={styles["text-link"]} to={"/friends"}>
+                독서친구
+              </Link>
+            </div>
             <div className={styles["btn"]}>프로필 변경</div>
-            <div className={styles["btn"]}>나의 독서친구</div>
             <div className={`${styles.btn} ${styles.logout}`} onClick={signout}>
               로그아웃
             </div>
