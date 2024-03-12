@@ -47,7 +47,7 @@ const JoinPage: React.FC = () => {
   const join = useCallback(() => {
     // 비밀번호 일치 검증
     if (password === passwordCk) {
-      signup({ email: email, password: password, nickName: nickName }).then(
+      signup({ email: email, password: password, nickname: nickName }).then(
         (response) => {
           window.location.href = "/login";
         }

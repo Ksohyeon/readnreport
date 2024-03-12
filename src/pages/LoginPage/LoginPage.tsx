@@ -5,10 +5,12 @@ import { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import google from "../../img/google_login.png";
 import { signin } from "../../service/ApiService";
+import { useDispatch } from "react-redux";
 
 const LoginPage: React.FC = () => {
   const [idValue, setId] = useState("");
   const [pwValue, setPw] = useState("");
+  const dispatch = useDispatch();
 
   const url = "http://localhost:8080/login";
 

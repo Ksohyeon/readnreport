@@ -51,7 +51,7 @@ export function call(api: string, method: string, request?: object) {
 interface User {
   email: string;
   password: string;
-  nickName?: string;
+  nickname?: string;
 }
 
 export function signin(userDTO: User) {
@@ -59,6 +59,7 @@ export function signin(userDTO: User) {
   return call("/auth/signin", "POST", userDTO).then((response) => {
     if (response.token) {
       localStorage.setItem("ACCESS_TOKEN", response.token);
+      localStorage.setItem("nickname", response.nickname);
       window.location.href = "/";
     } else {
       alert("로그인 실패");

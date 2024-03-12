@@ -17,7 +17,8 @@ import CreateReportPage from "./pages/CreateReportPage/CreateReportPage";
 import ReportDetailPage from "./pages/ReportDetailPage/ReportDetailPage";
 import SearchResultPage from "./pages/SearchResultPage/SearchResultPage";
 import { useDispatch } from "react-redux";
-import { login, logout } from "./features/auth/authSlice";
+import { login, logout, setNickname } from "./features/auth/authSlice";
+import MyFriendPage from "pages/MyFriendPage/MyFriendPage";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
       { index: true, element: <MainPage /> },
       { path: "login", element: <LoginPage /> },
       { path: "join", element: <JoinPage /> },
+      { path: "friends", element: <MyFriendPage /> },
       {
         path: "bookshelf",
         element: <MyReportPage />,
@@ -54,8 +56,10 @@ const App: React.FC = () => {
   const dispatch = useDispatch();
 
   const token = localStorage.getItem("ACCESS_TOKEN");
+  const nickname = localStorage.getItem("nickname");
   if (token && token !== "null") {
     dispatch(login());
+    dispatch(setNickname(nickname ? nickname : ""));
   } else {
     dispatch(logout());
   }

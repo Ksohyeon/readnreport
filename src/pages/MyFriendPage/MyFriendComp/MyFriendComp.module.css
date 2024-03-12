@@ -1,0 +1,54 @@
+.page {
+  width: 30vw;
+  height: 93vh;
+}
+
+.friend-list {
+  box-sizing: border-box;
+  border-radius: 20px;
+  background-color: aliceblue;
+  height: 73vh;
+  padding: 3vh 2vw;
+  margin: 3vh 2vw;
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.friend-add {
+  box-sizing: border-box;
+  height: 11vh;
+  padding: 3%;
+  margin: 3vh 2vw;
+}
+
+.text1 {
+  font-weight: bold;
+  margin-bottom: 1vh;
+  display: flex;
+  align-items: center;
+}
+
+.friend {
+  height: 2.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 0.5vh 0.5vw;
+}
+
+.friend:hover {
+  background-color: rgb(226, 235, 245);
+}
+
+.chat-btn {
+  font-size: small;
+  padding: 1px;
+  border-radius: 10px;
+  background-color: aliceblue;
+}
+
+.chat-btn:hover {
+  cursor: pointer;
+}
