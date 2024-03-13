@@ -1,9 +1,11 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import * as StompJs from "@stomp/stompjs";
 import styles from "./ChatSpaceComp.module.css";
-import { channel } from "diagnostics_channel";
+import { Channel } from "../MyFriendPage";
+import { current } from "@reduxjs/toolkit";
+import { call } from "service/ApiService";
 
 interface Chat {
   channalId: number;
@@ -11,15 +13,15 @@ interface Chat {
   chat: string;
 }
 
-interface AuthState {
+export interface AuthState {
   auth: { nickname: string };
 }
 
-interface SearchParam {
-  channel_id: string;
+interface OwnProps {
+  currentChannel: Channel;
 }
 
-const ChatSpaceComp = () => {
+const ChatSpaceComp = ({ currentChannel }: OwnProps) => {
   const myNickname = useSelector((state: AuthState) => state.auth.nickname);
   const client = useRef<StompJs.Client | null>(null);
   const [chatList, setChatList] = useState<Chat[]>([]);
@@ -95,37 +97,67 @@ const ChatSpaceComp = () => {
 
   useEffect(() => {
     disconnect();
-    setChatList([]);
+
+    if (channelId) {
+      // 채팅 내역 불러오기
+      call(`/channel/chat?channel=${channelId}`, "GET").then((response) => {
+        console.log("채팅내역:");
+        setChatList(response);
+      });
+    }
+
     connect();
   }, [channelId]);
 
   return (
     <div className={styles["comp"]}>
       <div className={styles["chat-space"]}>
-        <div className={styles["text1"]}>채널명</div>
-        <div>채널: {channelId}</div>
-        {chatList.map((chat) => (
-          <div className={styles[`${chat.writer === myNickname ? "me" : ""}`]}>
-            {chat.writer}: {chat.chat}
-          </div>
-        ))}
-        <form
-          className={styles["chat-form"]}
-          onSubmit={(event: React.FormEvent<HTMLFormElement>) =>
-            handleSubmit(event, chat)
-          }
-        >
-          <input
-            type={"text"}
-            name={"chatInput"}
-            onChange={handleChange}
-            value={chat}
-            className={styles["chat-input"]}
-          />
-          <button type={"submit"} className={styles["chat-btn"]}>
-            전송
-          </button>
-        </form>
+        <div className={styles["text1"]}>
+          {currentChannel.members.length === 0 ? (
+            <div>채팅방</div>
+          ) : currentChannel.members.length === 2 ? (
+            <div>
+              {currentChannel.members[0].nickname === myNickname
+                ? currentChannel.members[1].nickname
+                : currentChannel.members[0].nickname}
+            </div>
+          ) : (
+            <div>
+              {currentChannel.members[0].nickname === myNickname
+                ? currentChannel.members[1].nickname
+                : currentChannel.members[0].nickname}
+              외 {currentChannel.members.length - 2}명
+            </div>
+          )}
+        </div>
+        {/* <div>채널: {channelId}</div> */}
+        {chatList &&
+          chatList.map((chat) => (
+            <div
+              className={styles[`${chat.writer === myNickname ? "me" : ""}`]}
+            >
+              {chat.writer}: {chat.chat}
+            </div>
+          ))}
+        {channelId && (
+          <form
+            className={styles["chat-form"]}
+            onSubmit={(event: React.FormEvent<HTMLFormElement>) =>
+              handleSubmit(event, chat)
+            }
+          >
+            <input
+              type={"text"}
+              name={"chatInput"}
+              onChange={handleChange}
+              value={chat}
+              className={styles["chat-input"]}
+            />
+            <button type={"submit"} className={styles["chat-btn"]}>
+              전송
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );

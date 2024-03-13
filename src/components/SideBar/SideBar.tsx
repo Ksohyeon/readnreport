@@ -6,6 +6,7 @@ import styles from "./SideBar.module.css";
 
 interface LoginCheck {
   isLoggedIn: boolean;
+  nickname: string;
 }
 
 interface AuthState {
@@ -14,6 +15,7 @@ interface AuthState {
 
 const SideBar: React.FC = () => {
   const isLoggedIn = useSelector((state: AuthState) => state.auth.isLoggedIn);
+  const nickname = useSelector((state: AuthState) => state.auth.nickname);
 
   return (
     <div className={styles.sidebar}>
@@ -36,7 +38,7 @@ const SideBar: React.FC = () => {
       {isLoggedIn && (
         <div>
           <div className={styles["profile-img"]}></div>
-          <div className={styles["user-name"]}>김유저</div>
+          <div className={styles["user-name"]}>{nickname}</div>
           <div className={styles["buttons"]}>
             <div className={styles["btn"]}>
               <Link className={styles["text-link"]} to="/bookshelf">

@@ -1,15 +1,18 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./MyFriendComp.module.css";
 import { IoPerson } from "react-icons/io5";
+import { IoChatbubbleEllipses } from "react-icons/io5";
+import { FaPlus } from "react-icons/fa6";
 import { call } from "service/ApiService";
 import { Channel } from "../MyFriendPage";
+import MakeChannelModalComp from "../MakeChannelModalComp/MakeChannelModalComp";
 
-interface Friend {
+export interface Friend {
   fid: string;
   fnickname: string;
   fuserId: string;
   userID: string;
-  choosen?: boolean;
+  chosen?: boolean;
 }
 
 interface OwnProps {
@@ -19,6 +22,7 @@ interface OwnProps {
 const MyFriendComp = ({ setChannelList }: OwnProps) => {
   const addFriendInputRef = useRef<HTMLInputElement>(null);
   const [friendList, setFriendList] = useState<Friend[]>([]);
+  const [isMakeChannelModelOpen, setIsMakeChannelModelOpen] = useState(false);
 
   const handleSubmit = useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
@@ -40,6 +44,10 @@ const MyFriendComp = ({ setChannelList }: OwnProps) => {
     });
   }, []);
 
+  const handleMakeChannelModal = useCallback(() => {
+    setIsMakeChannelModelOpen((prev) => !prev);
+  }, []);
+
   useEffect(() => {
     call("/friend/all", "GET").then((response) => {
       console.log(response.data);
@@ -49,10 +57,27 @@ const MyFriendComp = ({ setChannelList }: OwnProps) => {
 
   return (
     <div className={styles["page"]}>
+      {isMakeChannelModelOpen && (
+        <div style={{ position: "absolute", zIndex: "2" }}>
+          <MakeChannelModalComp
+            setChannelList={setChannelList}
+            friendList={friendList}
+            setIsMakeChannelModelOpen={setIsMakeChannelModelOpen}
+          />
+        </div>
+      )}
       <div className={styles["friend-list"]}>
         <div className={styles["text1"]}>
           <IoPerson size={20} />
           친구목록{`(${friendList.length})`}
+          <span
+            className={styles["chat-icon"]}
+            onClick={handleMakeChannelModal}
+          >
+            <IoChatbubbleEllipses size={20} />
+            &nbsp;
+            <FaPlus size={17} />
+          </span>
         </div>
         {friendList.map((friend, idx) => {
           return (
@@ -62,20 +87,20 @@ const MyFriendComp = ({ setChannelList }: OwnProps) => {
               onMouseEnter={() => {
                 setFriendList((prev: Friend[]) => {
                   const list = [...prev];
-                  list[idx].choosen = true;
+                  list[idx].chosen = true;
                   return list;
                 });
               }}
               onMouseLeave={() => {
                 setFriendList((prev: Friend[]) => {
                   const list = [...prev];
-                  list[idx].choosen = false;
+                  list[idx].chosen = false;
                   return list;
                 });
               }}
             >
               {friend.fnickname}
-              {friend.choosen && (
+              {friend.chosen && (
                 <button
                   className={styles["chat-btn"]}
                   onClick={() => handleMakeChannel(friend)}
