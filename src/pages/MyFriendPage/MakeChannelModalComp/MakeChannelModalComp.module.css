@@ -1,0 +1,76 @@
+.comp {
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 20px;
+  height: 73vh;
+  width: 26vw;
+  padding: 3vh 2vw;
+  margin: 3vh 2vw;
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  background-color: #dfeaf4;
+}
+
+.comp button {
+  cursor: pointer;
+}
+
+.close-btn {
+  position: absolute;
+  right: 1.7vw;
+}
+
+.close-btn:hover {
+  cursor: pointer;
+}
+
+.friend {
+  border-radius: 10px;
+  height: 2.5vh;
+  padding: 0.3vh 0.5vw;
+  margin: 0.2vh 0;
+}
+
+.friend:hover {
+  cursor: pointer;
+  background-color: #f0f8ff;
+}
+
+.chosen {
+  background-color: #f0f8ff;
+}
+
+.create {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 1.7vw;
+  bottom: 2.7vh;
+}
+
+.chosen-list {
+  box-sizing: border-box;
+  width: 15vw;
+  margin-right: 0.5vw;
+  border-radius: 10px;
+  padding: 0.5vh 0.5vw;
+  background-color: white;
+}
+
+.chosen-list span {
+  margin-right: 0.5vw;
+}
+
+.create button {
+  width: 6.5vw;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7vh 0.7vw;
+  background-color: #ffffff;
+}
+
+.create-btn button:hover {
+  background-color: #e0e0e0;
+}

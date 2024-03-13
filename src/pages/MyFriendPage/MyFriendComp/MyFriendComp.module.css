@@ -23,10 +23,22 @@
 }
 
 .text1 {
+  position: relative;
   font-weight: bold;
   margin-bottom: 1vh;
   display: flex;
   align-items: center;
+  height: 3vh;
+}
+.chat-icon {
+  display: flex;
+  position: absolute;
+  right: 0;
+  align-items: center;
+}
+
+.chat-icon:hover {
+  cursor: pointer;
 }
 
 .friend {
