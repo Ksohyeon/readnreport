@@ -1,11 +1,15 @@
 .page {
+  box-sizing: border-box;
   width: 100vw;
-  height: 93vh;
-  margin-top: 7vh;
+  height: 100vh;
+  padding-top: 8vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #70a369;
+  color: #3f2718;
+  font-weight: bolder;
 }
 
 .btngroup {
@@ -14,7 +18,6 @@
   display: flex;
   justify-content: center;
   font-size: larger;
-  font-weight: bold;
 }
 
 .btngroup button {
@@ -36,12 +39,21 @@
   font-size: medium;
   font-weight: bold;
 }
-
 .marks div {
   position: relative;
   justify-self: end;
   display: inline-block;
   padding: 0.4% 0.6%;
+}
+@media (max-width: 600px) {
+  .marks {
+    padding: 0 10vw;
+    margin: 1.5%;
+  }
+  .marks div {
+    font-size: 12px;
+    padding: 0.4% 0.8%;
+  }
 }
 
 .blue {

@@ -1,6 +1,8 @@
 .report {
-  margin-top: 9vh;
+  box-sizing: border-box;
+  padding-top: 8vh;
   width: 100vw;
+  height: 92vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,18 +10,17 @@
   font-size: large;
 }
 
-.div1 {
+.back-btn-wrapper {
   display: flex;
-  width: 96vw;
+  width: 100vw;
   height: 5vh;
+  padding-left: 3vw;
+  margin-bottom: 2vh;
   flex-direction: row;
   align-items: start;
 }
 
-.link {
-  text-decoration: none;
-}
-.btn-back {
+.back-btn {
   height: 5vh;
   border: 0;
   background-color: rgba(255, 255, 255, 0);
@@ -33,7 +34,6 @@
   display: inline-block;
 }
 .text-list {
-  height: 100%;
   display: flex;
   align-items: center;
 }
@@ -59,43 +59,60 @@
   display: flex;
   flex-direction: row;
 }
-
-.title {
+.view-like-lock {
+  display: flex;
+  justify-content: right;
+}
+.view-like-lock div span:nth-child(1) {
+  margin-right: 0.7vw;
+}
+@media (max-width: 600px) {
+  .view-like-lock div {
+    width: 15vw;
+  }
+}
+.title,
+.booktitle {
+  box-sizing: border-box;
   width: 60%;
+  padding-left: 1vw;
 }
 
 .created-time {
+  box-sizing: border-box;
   width: 40%;
+  padding-right: 1.5vw;
   text-align: end;
 }
 
-.booktitle {
-  width: 70%;
+.view-like-lock {
+  margin-bottom: 1vh;
+  padding-right: 1vw;
 }
 
 .view,
 .like,
 .lock {
-  width: 10%;
+  width: 9%;
   display: flex;
   flex-direction: row;
+  justify-content: right;
 }
-
-.heart {
-  color: rgb(234, 83, 108);
-  margin-bottom: 0;
+.like:hover {
+  cursor: pointer;
 }
 
 .report-content {
-  width: 100%;
+  box-sizing: border-box;
+  width: 70vw;
   height: 60vh;
   padding: 2%;
   background-color: rgb(244, 244, 244);
 }
 
 .report-footer {
-  margin-top: 1vh;
-  width: 100%;
+  width: 70vw;
+  margin-top: 2vh;
 }
 
 .btn {
@@ -105,8 +122,8 @@
 
 .btn button {
   border: 0;
-  border-radius: 5ch;
-  padding: 8px;
+  border-radius: 10px;
+  padding: 1vh 1vw;
 }
 
 .btn button:hover {

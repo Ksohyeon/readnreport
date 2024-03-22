@@ -1,7 +1,17 @@
 .page {
+  position: relative;
+  box-sizing: border-box;
   width: 100vw;
-  height: 93vh;
-  margin-top: 7vh;
+  height: 100vh;
+  padding-top: 8vh;
+  background-color: rgb(183, 119, 202);
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-bar {
+  position: absolute;
+  left: 1vw;
 }

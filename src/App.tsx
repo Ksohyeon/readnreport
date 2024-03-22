@@ -19,6 +19,8 @@ import SearchResultPage from "./pages/SearchResultPage/SearchResultPage";
 import { useDispatch } from "react-redux";
 import { login, logout, setNickname } from "./features/auth/authSlice";
 import MyFriendPage from "pages/MyFriendPage/MyFriendPage";
+import UserInfoPage from "pages/UserInfoPage/UserInfoPage";
+import { getItemWithExpireTime } from "service/LocalStorageFunc";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,7 @@ const router = createBrowserRouter([
       { index: true, element: <MainPage /> },
       { path: "login", element: <LoginPage /> },
       { path: "join", element: <JoinPage /> },
+      { path: "user-info", element: <UserInfoPage /> },
       { path: "friends", element: <MyFriendPage /> },
       {
         path: "bookshelf",
@@ -55,8 +58,8 @@ const queryClient = new QueryClient({
 const App: React.FC = () => {
   const dispatch = useDispatch();
 
-  const token = localStorage.getItem("ACCESS_TOKEN");
-  const nickname = localStorage.getItem("nickname");
+  const token = getItemWithExpireTime("ACCESS_TOKEN");
+  const nickname = getItemWithExpireTime("nickname");
   if (token && token !== "null") {
     dispatch(login());
     dispatch(setNickname(nickname ? nickname : ""));

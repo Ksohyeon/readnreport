@@ -1,7 +1,7 @@
 .main-nav {
   position: fixed;
   top: 0px;
-  height: 7vh;
+  height: 8vh;
   z-index: 3;
 }
 
@@ -27,7 +27,6 @@
 }
 
 .btnBackToTop {
-  display: none;
   position: fixed;
   bottom: 20px;
   right: 30px;

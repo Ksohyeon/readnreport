@@ -1,14 +1,14 @@
 .nav {
-  height: 100%;
   width: 100vw;
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 .bgcolor {
-  background-color: #dbecf3;
-  transition: 0.2s ease-in;
+  background-color: #71a6be;
+  transition: 0.3s ease-in;
 }
 
 .site-name {
@@ -18,9 +18,17 @@
   text-decoration: none;
 }
 .grmenu {
-  margin: 10px 25px;
+  margin: 0 1vw 0 2vw;
   z-index: 5;
 }
 .grmenu:hover {
   cursor: pointer;
+}
+
+.site-name {
+  align-self: center;
+  height: 8vh;
+}
+.site-name img {
+  height: 8vh;
 }

@@ -71,14 +71,16 @@ const MyBookModal = ({ book, setBook, setbookModal }: OwnProps) => {
           open ? styles["open"] : styles["close"]
         } `}
       >
-        <IoIosCloseCircleOutline
-          onClick={closeModalHandler}
-          className={styles["close-btn"]}
-          size={30}
-        >
-          close
-        </IoIosCloseCircleOutline>
-        <ul>
+        <ul className={styles["book"]}>
+          <li>
+            <IoIosCloseCircleOutline
+              onClick={closeModalHandler}
+              className={styles["close-btn"]}
+              size={30}
+            >
+              close
+            </IoIosCloseCircleOutline>
+          </li>
           <li>
             <img src={book.bookImg} className={styles["book-img"]} />
           </li>
@@ -88,29 +90,42 @@ const MyBookModal = ({ book, setBook, setbookModal }: OwnProps) => {
           <li>
             <button
               onClick={bookHandler}
-              className={styles[`${isInBookShelf ? "chosen" : ""}`]}
+              className={`${styles["delete-add-btn"]} ${
+                styles[isInBookShelf ? "chosen" : ""]
+              }`}
             >
               {isInBookShelf ? "책장에서 제거" : "책장에 추가"}
             </button>
-          </li>
-          {book.reading ? (
-            <>
-              <li>
-                <button onClick={endHandler}>읽기 완료</button>
-              </li>
-              <li>시작일 {book.startDate.substring(0, 10)}</li>
-              <li>{book.endDate}</li>
-            </>
-          ) : book.endDate ? (
-            <>
-              <li>시작일 {book.startDate.substring(0, 10)}</li>
-              <li>종료일 {book.endDate.substring(0, 10)}</li>
-            </>
-          ) : (
-            <li>
+            {book.reading ? (
+              <>
+                <button className={styles["end-btn"]} onClick={endHandler}>
+                  읽기 완료
+                </button>
+
+                <div style={{ fontSize: "0.8em", marginTop: "1vh" }}>
+                  <span className={styles["start-date"]}>
+                    시작일 {book.startDate.substring(0, 10)}
+                  </span>
+                  <span>{book.endDate}</span>
+                </div>
+              </>
+            ) : book.endDate ? (
+              <div
+                className={styles["start-end"]}
+                style={{ fontSize: "0.8em", marginTop: "1vh" }}
+              >
+                <span className={styles["start-date"]}>
+                  시작일 {book.startDate.substring(0, 10)}
+                </span>
+                &nbsp;/&nbsp;
+                <span className={styles["end-date"]}>
+                  종료일 {book.endDate.substring(0, 10)}
+                </span>
+              </div>
+            ) : (
               <button onClick={startHandler}>읽기 시작</button>
-            </li>
-          )}
+            )}
+          </li>
           <li>{book.bookDesc}</li>
         </ul>
       </div>

@@ -1,45 +1,45 @@
 .join {
-  width: 100%;
-  height: 100%;
   position: relative;
+  width: 100vw;
+  height: 100vh;
 }
 
 .text {
   text-align: center;
-  margin-top: 5em;
+  margin-bottom: 2vh;
 }
-
 .form {
-  width: 27em;
-  top: 0%;
-  left: 50%;
   position: absolute;
   display: flex;
+  width: 22em;
+  top: 50vh;
+  left: 50vw;
   flex-direction: column;
   align-items: center;
-  transform: translate(-50%, 20%);
+  transform: translate(-50%, -55%);
 }
 
 .input {
-  height: 3em;
-  margin: 0.7em 0;
-  padding: 0.5em;
+  box-sizing: border-box;
   width: 100%;
+  height: 5vh;
+  margin: 0.5vh 0;
+  padding: 0.7em;
   border-style: none;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: rgb(224, 224, 224);
 }
 
 .btn {
-  width: 60%;
-  margin: 1em 0;
-  padding: 0.7em;
+  width: 70%;
+  margin: 3vh 0;
+  padding: 1.2vh 5vw;
   border-style: none;
   border-radius: 20px;
   color: aliceblue;
   font-size: medium;
   font-weight: bolder;
-  background-color: rgb(100, 100, 100);
+  background-color: rgb(110, 110, 110);
   cursor: pointer;
 }
 

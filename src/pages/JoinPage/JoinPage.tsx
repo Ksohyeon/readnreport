@@ -60,8 +60,8 @@ const JoinPage: React.FC = () => {
 
   return (
     <div className={styles["join"]}>
-      <h2 className={styles["text"]}>회원가입</h2>
       <div className={styles["form"]}>
+        <h2 className={styles["text"]}>회원가입</h2>
         <input
           className={styles["input"]}
           type="text"

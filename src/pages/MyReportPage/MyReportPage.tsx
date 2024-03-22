@@ -21,22 +21,20 @@ function MyReportPage() {
 
   return (
     <>
-      <div>
+      <div className={styles["page"]}>
         <div className={styles["bs"]}>
-          <div className={styles["div1"]}>
-            <div className={styles["menu-name"]}>
-              <Link className={styles["create-update-btn"]} to="/write">
-                독후감 작성
-              </Link>
-            </div>
-            <MyBooksComp
-              book={book}
-              setbookModal={setbookModal}
-              setBook={setBook}
-            />
+          <div className={styles["menu-name"]}>
+            <Link className={styles["create-update-btn"]} to="/write">
+              독후감 작성
+            </Link>
           </div>
+          <MyBooksComp
+            book={book}
+            setbookModal={setbookModal}
+            setBook={setBook}
+          />
         </div>
-        <div>
+        <div className="reports">
           <MyReportsComp />
         </div>
       </div>

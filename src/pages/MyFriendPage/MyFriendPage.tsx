@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./MyFriendPage.module.css";
 import MyFriendComp from "./MyFriendComp/MyFriendComp";
 import ChatChannelListComp from "./ChatChannelListComp/ChatChannelListComp";
-import ChatSpaceComp from "./ChatSpaceComp/ChatSpaceComp";
+import FriendPageSideBar from "./FriendPageSideBar/FriendPageSideBar";
 
 interface Member {
   channelId: number;
@@ -17,23 +17,49 @@ export interface Channel {
   choosen?: boolean;
 }
 
+export interface Friend {
+  fid: string;
+  fnickname: string;
+  fuserId: string;
+  userID: string;
+  chosen?: boolean;
+}
+export type PageType = "friend-list" | "chat-list";
+
 const MyFriendPage: React.FC = () => {
+  const [curComp, setCurComp] = useState<PageType>("friend-list");
+  const [friendList, setFriendList] = useState<Friend[]>([]);
+  const [channelList, setChannelList] = useState<Channel[]>([]);
   const [currentChannel, setCurrentChannel] = useState<Channel>({
     channelId: -1,
     userId: "",
     members: [],
   });
-  const [channelList, setChannelList] = useState<Channel[]>([]);
 
   return (
     <div className={styles["page"]}>
-      <MyFriendComp setChannelList={setChannelList} />
-      <ChatChannelListComp
-        channelList={channelList}
-        setChannelList={setChannelList}
-        setCurrentChannel={setCurrentChannel}
-      />
-      <ChatSpaceComp currentChannel={currentChannel} />
+      <div className={styles["slide-bar"]}>
+        <FriendPageSideBar curComp={curComp} setCurComp={setCurComp} />
+      </div>
+      {curComp === "friend-list" && (
+        <MyFriendComp
+          friendList={friendList}
+          setCurComp={setCurComp}
+          setFriendList={setFriendList}
+          setCurrentChannel={setCurrentChannel}
+        />
+      )}
+      {curComp === "chat-list" && (
+        <>
+          <ChatChannelListComp
+            friendList={friendList}
+            currentChannel={currentChannel}
+            channelList={channelList}
+            setChannelList={setChannelList}
+            setCurrentChannel={setCurrentChannel}
+          />
+        </>
+      )}
     </div>
   );
 };
