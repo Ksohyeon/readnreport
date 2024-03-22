@@ -1,0 +1,66 @@
+.page {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 8vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #70a369;
+  color: #3f2718;
+  font-weight: bolder;
+}
+
+.btngroup {
+  position: relative;
+  bottom: 2vh;
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+}
+
+.btngroup button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 0 1vw;
+}
+
+.marks {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  bottom: 2vh;
+  padding: 0 17vw;
+  margin-bottom: 0.7%;
+  display: flex;
+  justify-content: end;
+  font-size: medium;
+  font-weight: bold;
+}
+.marks div {
+  position: relative;
+  justify-self: end;
+  display: inline-block;
+  padding: 0.4% 0.6%;
+}
+@media (max-width: 600px) {
+  .marks {
+    padding: 0 10vw;
+    margin: 1.5%;
+  }
+  .marks div {
+    font-size: 12px;
+    padding: 0.4% 0.8%;
+  }
+}
+
+.blue {
+  background-color: rgb(177, 215, 255);
+  margin-right: 0.7vw;
+}
+
+.yellow {
+  background-color: rgb(255, 255, 178);
+}

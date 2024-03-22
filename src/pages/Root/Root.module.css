@@ -1,7 +1,7 @@
 .main-nav {
-  position: sticky;
+  position: fixed;
   top: 0px;
-  height: 7vh;
+  height: 8vh;
   z-index: 3;
 }
 
@@ -14,7 +14,8 @@
 
 .main-nav,
 .sidebar {
-  font-family: "hambak";
+  font-family: "orbit";
+  font-weight: bold;
 }
 
 .sidebar {
@@ -25,8 +26,7 @@
   transition: 0.5s ease-in-out;
 }
 
-.btn-back-to-top {
-  display: none;
+.btnBackToTop {
   position: fixed;
   bottom: 20px;
   right: 30px;
@@ -38,6 +38,10 @@
   cursor: pointer;
   padding: 15px;
   border-radius: 10px;
+}
+
+.btnDisplay {
+  display: none;
 }
 
 .btn-back-to-top:hover {

@@ -1,0 +1,139 @@
+.button {
+  font-family: "orgit";
+  position: relative;
+  padding: 1.5vh 2.7vw;
+  font-size: large;
+  font-weight: bolder;
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: 0 0 2px rgb(224, 224, 224);
+  letter-spacing: 2px;
+  background: none;
+}
+
+.button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transform: scale(0);
+  transform-origin: left top;
+}
+
+.button:hover:before {
+  background-color: rgb(0, 0, 0);
+  transform: scale(1);
+  transition: 0.5s;
+  transition-delay: 0.8s;
+  z-index: -1;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: rgb(255, 219, 165);
+  transition: 0.2s;
+  transition-delay: 0.8s;
+  z-index: 1;
+}
+
+.pencil {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -22px;
+  left: 0;
+  opacity: 0;
+}
+
+.button:hover svg {
+  opacity: 1;
+  animation: draw-line 0.8s linear forwards;
+}
+
+@keyframes draw-line {
+  0% {
+    top: -22px;
+    left: 0;
+  }
+  20% {
+    top: -22px;
+    left: 100%;
+  }
+  40% {
+    top: calc(100% - 22px);
+    left: 100%;
+  }
+  60% {
+    top: calc(100% - 22px);
+    left: 0;
+  }
+  80% {
+    top: -22px;
+    left: 0;
+  }
+  100% {
+    top: calc(100% - 22px);
+    left: 100%;
+  }
+}
+
+.button span:nth-child(1),
+.button span:nth-child(3) {
+  background: rgb(0, 0, 0);
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  left: 0;
+  transform: scaleX(0);
+}
+.border:nth-child(2),
+.border:nth-child(4) {
+  background: rgb(0, 0, 0);
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  top: 0;
+  transform: scaleY(0);
+}
+
+.border:nth-child(1) {
+  top: 0;
+  transform-origin: left;
+}
+.button:hover .border:nth-child(1) {
+  transform: scaleX(1);
+  transition: 0.2s;
+}
+
+.border:nth-child(2) {
+  left: 0;
+  transform-origin: bottom;
+}
+.button:hover .border:nth-child(2) {
+  transform: scaleY(1);
+  transition: 0.2s;
+  transition-delay: 0.6s;
+}
+
+.border:nth-child(3) {
+  bottom: 0;
+  transform-origin: right;
+}
+.button:hover .border:nth-child(3) {
+  transform: scaleX(1);
+  transition: 0.2s;
+  transition-delay: 0.4s;
+}
+
+.border:nth-child(4) {
+  right: 0;
+  transform-origin: top;
+}
+.button:hover .border:nth-child(4) {
+  transform: scaleY(1);
+  transition: 0.2s;
+  transition-delay: 0.2s;
+}

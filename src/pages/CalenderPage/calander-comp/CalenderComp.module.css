@@ -1,0 +1,86 @@
+.calender {
+  box-sizing: border-box;
+  position: relative;
+  bottom: 2vh;
+  width: 69vw;
+  height: 69vh;
+  padding: 2vh 3vw 3vh;
+  border-radius: 30px;
+  background-color: #eed1a8;
+}
+.day-list li {
+  display: inline-block;
+  width: 9vw;
+  height: 4vh;
+  text-align: center;
+}
+.container {
+  box-sizing: border-box;
+  width: 63vw;
+  height: 60vh;
+  display: grid;
+  grid-template-columns: repeat(7, 9vw);
+  grid-template-rows: repeat(6, 10vh);
+}
+.content {
+  box-sizing: border-box;
+  width: 96%;
+  height: 94%;
+  margin: 3% 2%;
+  padding: 3% 4%;
+  border-radius: 10px;
+  background-color: #fffbf678;
+  font-size: 0.7em;
+  white-space: nowrap;
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+@media (min-width: 992px) {
+}
+@media (max-width: 991px) and (min-width: 601px) {
+}
+@media (max-width: 600px) {
+  .calender {
+    width: 90vw;
+    height: 50vh;
+    padding: 1vh 3vw;
+    font-size: 12px;
+  }
+  .day-list li {
+    width: calc(9vw / 69 * 90);
+  }
+  .container {
+    width: calc(63vw / 69 * 90);
+    height: calc(50vh / 69 * 50);
+    grid-template-columns: repeat(7, calc(9vw / 69 * 90));
+    grid-template-rows: repeat(6, calc(10vh / 69 * 50));
+  }
+}
+
+.element {
+  display: inline-block;
+}
+
+.content > div:nth-child(2) {
+  position: relative;
+  top: 2vh;
+  width: fit-content;
+}
+
+.date {
+  font-size: small;
+  height: 2vh;
+  position: fixed;
+}
+
+.start {
+  background-color: rgb(177, 215, 255);
+}
+.end {
+  background-color: rgb(255, 255, 178);
+}
+
+.thismonth {
+  background-color: #fffbf6;
+}

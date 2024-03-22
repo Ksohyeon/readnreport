@@ -32,13 +32,24 @@ li {
 .modal {
   box-sizing: border-box;
   border-radius: 30px;
-  background-color: rgb(230, 221, 239);
+  background-color: rgb(207, 207, 207);
   width: 70vw;
   height: 70vh;
   padding: 2vh 2vw;
   overflow: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.book {
+  width: fit-content;
+  height: fit-content;
+  animation: content-hide 0.5s;
+}
+@media (max-width: 600px) {
+  .modal {
+    width: 88vw;
+  }
 }
 
 .modal::-webkit-scrollbar {
@@ -55,21 +66,26 @@ li {
   animation: modal-close 0.5s;
 }
 
-.book {
-  width: fit-content;
-  height: fit-content;
-  animation: content-hide 0.5s;
+.book-title {
+  font-weight: bold;
+  margin: 1.5vh 0;
 }
 
 .book-img {
   width: 170px;
+  height: 257px;
   position: relative;
   float: left;
-  margin: 1vh 2vw 3vh 1vw;
+  margin: 0vh 3vw 2vh 2vw;
 }
 
-.modal li {
-  margin: 1vh 1vw;
+.modal li:not(:first-child, :nth-child(6)) {
+  position: relative;
+  top: 1vh;
+}
+
+.modal li:not(:last-child) {
+  font-size: large;
 }
 
 .modal li:last-child {
@@ -80,14 +96,55 @@ li {
   margin: 2vh 2vw;
 }
 
+.option-btns {
+  position: relative;
+  top: 130px;
+  right: 2vw;
+}
+.option-btns button {
+  position: relative;
+  float: right;
+  margin: 0 0.5vw;
+  padding: 1vh 1vw;
+  border: none;
+  border-radius: 0.7em;
+  font-weight: bold;
+}
 .close-btn {
   position: absolute;
-  top: 2vh;
-  right: 1.5vw;
+  right: 1vw;
+  top: -1vh;
   border: none;
   width: 36px;
   height: 36px;
   border-radius: 15px;
+  z-index: 1;
+}
+@media (max-width: 600px) {
+  .option-btns {
+    position: absolute;
+    top: 27.5vh;
+    right: 3.5vw;
+  }
+  .option-btns button {
+    font-size: 0.5em;
+  }
+  .close-btn {
+    right: 0.8vw;
+    top: -3.4vh;
+    width: 30px;
+    height: 30px;
+  }
+}
+.option-btns button:hover {
+  cursor: pointer;
+  color: blueviolet;
+  transition: 0.2s ease-in-out;
+  opacity: 0.6;
+}
+
+.chosen {
+  background-color: gold;
 }
 
 .close-btn:hover {

@@ -1,0 +1,102 @@
+.page {
+  width: 30vw;
+  height: 92vh;
+}
+.friend-list {
+  box-sizing: border-box;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  height: 73vh;
+  padding: 3vh 2vw;
+  margin: 3vh 2vw 2vh;
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.buttons {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 8vh;
+  transform: translateX(28vw);
+  width: 5vw;
+  height: 10vh;
+  padding: 2vh 1vw;
+}
+.text1 {
+  margin-bottom: 2.5vh;
+}
+
+.icon {
+  display: flex;
+  align-items: last baseline;
+  z-index: 2;
+}
+
+.friend {
+  height: 2.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 1vh 0.7vw;
+}
+
+@media (min-width: 992px) {
+  .icon:hover {
+    cursor: pointer;
+    color: white;
+  }
+}
+@media (max-width: 600px) {
+  .page {
+    width: 77vw;
+    transform: translateX(5vw);
+  }
+  .friend-list {
+    padding: 2vh 3vw;
+    transform: translateY(2vh);
+  }
+  .friend {
+    padding: 0.5vh 2vw;
+  }
+  .buttons {
+    height: 4vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 7vh;
+    transform: translate(61vw);
+    padding: 0vh 1vw;
+    color: purple;
+  }
+  .icon {
+    display: flex;
+    align-items: last baseline;
+  }
+}
+
+.chat-icon:hover {
+  cursor: pointer;
+}
+
+.friend:hover {
+  background-color: rgb(224, 187, 231);
+}
+
+.chat-btn {
+  font-size: small;
+  padding: 0.5vh;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+}
+
+.chat-btn:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(141, 141, 141);
+}

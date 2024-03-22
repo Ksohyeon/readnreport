@@ -1,12 +1,32 @@
 .report {
-  box-sizing: border-box;
-  padding: 2% 3%;
-  margin: 3% 0;
-  border-radius: 2em;
-  background-color: rgb(235, 255, 242);
+  overflow: hidden;
+  white-space: nowrap;
 }
-
 .title {
-  margin-bottom: 1%;
   font-weight: bolder;
+}
+.report li:nth-child(2) {
+  font-size: 0.8em;
+  margin-top: 1vh;
+}
+.report li:nth-child(3) {
+  position: absolute;
+  right: 1vw;
+  bottom: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.like {
+  display: flex;
+  align-items: center;
+  margin-left: 1vw;
+}
+@media (max-width: 600px) {
+  .report li:nth-child(3) {
+    font-size: smaller;
+    left: 1.7vw;
+    right: 1.7vw;
+    bottom: 0.5vh;
+  }
 }

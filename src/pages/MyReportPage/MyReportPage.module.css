@@ -1,130 +1,73 @@
+.page {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(235, 220, 200);
+}
+
 .bs {
-  height: 37vh;
+  width: 100%;
+  height: 38vh;
   overflow: hidden;
   position: relative;
-  width: 100%;
-}
-
-.bs::before {
-  height: 50vh;
-  width: 100vw;
-  background-image: url("../../img/green.jpg");
-  background-size: cover;
-  position: absolute;
-  content: "";
-  opacity: 0.7;
-}
-
-.div1 {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  right: 0;
-  top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
-
+.bs::before {
+  height: 100%;
+  width: 100vw;
+  background-color: #70a369;
+  background-size: cover;
+  position: absolute;
+  content: "";
+}
 .menu-name {
   position: absolute;
   width: 100vw;
   left: 0;
 }
-
-.site-name {
-  display: flex;
-  flex-direction: column;
+.reports {
+  width: 100vw;
+  height: 100%;
+  background-color: rgb(255, 171, 61);
+}
+.create-update-btn {
+  position: absolute;
+  right: 3vw;
+  top: -12vh;
   align-self: center;
-  font-size: 40px;
-  font-weight: 700;
-}
-.grmenu {
-  margin: 30px;
-  position: relative;
-}
-.grmenu:hover {
-  cursor: pointer;
-}
-.report-btn {
-  color: inherit;
-  text-decoration: inherit;
-  background-color: black;
   height: fit-content;
   padding: 10px 15px;
-  border-radius: 20px;
   color: white;
+  background-color: black;
+  text-decoration: inherit;
+  border-radius: 20px;
   font-weight: bolder;
-  align-self: center;
-  position: absolute;
-  margin-top: 10vh;
-  right: 3vw;
 }
-.report-btn:hover {
+@media (min-width: 992px) {
+  .create-update-btn {
+  }
+}
+@media (max-width: 991px) and (min-width: 601px) {
+}
+@media (max-width: 600px) {
+  .create-update-btn {
+  }
+}
+
+.create-update-btn:hover {
   cursor: pointer;
 }
 
-.book-shelf {
-  box-sizing: border-box;
-  position: absolute;
-  bottom: 0;
-  width: 70vw;
-  height: 24vh;
-  border: 30px;
-  border-style: solid;
-  border-color: #564b32;
-  background-color: rgb(174, 159, 142);
-  display: flex;
-  flex-direction: row;
-}
-.book {
-  box-sizing: border-box;
-  width: 3vw;
-  height: 80%;
-  padding: 5px;
-  align-self: last baseline;
-  writing-mode: vertical-lr;
-  font-weight: bolder;
-}
-
-.sidebar {
-  position: absolute;
+.modal-wrapper {
+  position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  width: 100vw;
   height: 100vh;
-  transition: 0.5s;
-}
-
-.bookmark {
-  position: absolute;
-  right: 0;
-  translate: 0 -30px;
-}
-
-.div2 {
-  margin: 5vh 7vw;
-}
-.reports {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
-}
-
-.report {
-  box-sizing: border-box;
-  display: inline-block;
-  width: 8vw;
-  min-width: 120px;
-  height: 20vh;
-  padding: 10%;
-  background-size: cover;
-  text-decoration: none;
-  color: black;
-  font: 0.9em solid;
-}
-
-.link {
-  width: 130px;
-  margin: 3vh 3vw;
+  justify-content: center;
+  background-color: rgba(191, 191, 191, 0.364);
 }

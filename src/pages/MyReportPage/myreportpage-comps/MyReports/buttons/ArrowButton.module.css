@@ -1,0 +1,52 @@
+.button {
+  display: inline-block;
+}
+
+.button span {
+  position: absolute;
+  background-color: #564b32;
+}
+.arr1 {
+  transform: skewX(-30deg);
+}
+.arr2 {
+  transform: skewX(30deg);
+}
+@media (min-width: 992px) {
+  .button span {
+    width: 1.2vw;
+    height: 3vh;
+  }
+  .arr1 {
+    top: -1.4vh;
+  }
+  .arr2 {
+    top: 1.4vh;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 601px) {
+  .button span {
+    width: 1.2vw;
+    height: 3vh;
+  }
+  .arr1 {
+    top: -1.4vh;
+  }
+  .arr2 {
+    top: 1.4vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .button span {
+    width: 2.5vw;
+    height: 2vh;
+  }
+  .arr1 {
+    top: -0.7vh;
+  }
+  .arr2 {
+    top: 1.3vh;
+  }
+}

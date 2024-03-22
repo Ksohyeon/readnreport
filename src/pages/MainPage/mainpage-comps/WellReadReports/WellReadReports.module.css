@@ -1,31 +1,28 @@
-.wrr {
+.comp {
+  height: auto;
 }
-.slidebar {
+
+.text1 {
+  font-weight: bolder;
+  text-align: center;
+  margin: 1vh 0 0;
+  color: #292929;
 }
 
 @media (min-width: 992px) {
   .text1 {
-    font-weight: bolder;
     font-size: x-large;
-    margin-bottom: 2vh;
-    color: #292929;
   }
 }
 
 @media (min-width: 991px), (max-width: 601px) {
   .text1 {
-    font-weight: bolder;
     font-size: large;
-    margin-bottom: 2vh;
-    color: #292929;
   }
 }
 
 @media (max-width: 600px) {
   .text1 {
-    font-weight: bolder;
     font-size: medium;
-    margin-bottom: 2vh;
-    color: #292929;
   }
 }

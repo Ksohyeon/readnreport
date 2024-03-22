@@ -1,0 +1,74 @@
+.book-shelf {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  width: 70vw;
+  height: 24vh;
+  border: 30px;
+  border-style: solid;
+  border-color: #564b32;
+  background-color: rgb(174, 159, 142);
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+.book-wrapper {
+  position: absolute;
+  bottom: 0;
+  height: 80%;
+  width: 100%;
+  white-space: nowrap;
+}
+.book {
+  bottom: 0;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: 1em;
+  height: 100%;
+  padding: 5px;
+  align-self: last baseline;
+  writing-mode: vertical-lr;
+  font-weight: bolder;
+  overflow: hidden;
+  border-right: 1px solid rgb(95, 91, 87);
+  background: linear-gradient(
+    0.25turn,
+    rgb(135, 129, 124),
+    rgb(255, 250, 239),
+    rgb(135, 129, 124)
+  );
+  transition: 0.2s ease-in-out;
+}
+
+.book:hover {
+  cursor: pointer;
+  transform: translate(0, -2vh);
+  transition: 0.3s ease-in-out;
+}
+.bookmark {
+  position: fixed;
+  translate: 0 -30px;
+}
+
+@media (min-width: 992px) {
+  .book {
+    width: 2.5vw;
+  }
+  .bookmark {
+    right: 20vw;
+  }
+}
+@media (max-width: 991px) and (min-width: 601px) {
+}
+@media (max-width: 600px) {
+  .book-shelf {
+    width: 86vw;
+    height: 22vh;
+  }
+  .book {
+    width: 7vw;
+  }
+  .bookmark {
+    right: 15vw;
+  }
+}

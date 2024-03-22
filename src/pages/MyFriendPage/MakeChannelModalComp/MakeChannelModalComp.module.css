@@ -1,0 +1,95 @@
+.comp {
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 20px;
+  height: 73vh;
+  width: 26vw;
+  padding: 3vh 2vw;
+  margin: 3vh 2vw;
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  background-color: #dbdbdb;
+}
+
+.close-btn {
+  position: absolute;
+  top: 2vh;
+  right: 1vw;
+  color: purple;
+}
+.create {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 1.7vw;
+  bottom: 2.7vh;
+}
+.friend {
+  border-radius: 10px;
+  height: 2.5vh;
+  padding: 0.7vh 0.7vw;
+  margin: 0.2vh 0;
+}
+.create button {
+  width: 6.5vw;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7vh 0.7vw;
+  background-color: #ffffff;
+  white-space: pre-line;
+}
+.chosen-list {
+  box-sizing: border-box;
+  width: 15vw;
+  margin-right: 0.5vw;
+  border-radius: 10px;
+  padding: 0.5vh 0.5vw;
+  background-color: white;
+}
+@media (max-width: 600px) {
+  .comp {
+    width: 73vw;
+    margin-top: 5vh;
+    padding: 3vh 5vw;
+  }
+  .close-btn {
+    top: 2vh;
+    right: 4vw;
+  }
+  .create {
+    right: 5vw;
+  }
+  .chosen-list {
+    width: 47vw;
+  }
+  .create button {
+    font-size: 0.7em;
+    width: 7vw;
+    height: 5vh;
+    padding: 0.5vh 3vw;
+    width: fit-content;
+  }
+}
+
+.close-btn:hover {
+  cursor: pointer;
+}
+
+.friend:hover {
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.chosen {
+  background-color: #ffffff;
+}
+
+.chosen-list span {
+  margin-right: 0.5vw;
+}
+
+.create-btn button:hover {
+  background-color: #e0e0e0;
+}
