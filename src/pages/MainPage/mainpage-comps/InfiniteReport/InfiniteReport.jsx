@@ -3,7 +3,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import InfiniteScroll from "react-infinite-scroller";
 import Report from "../../../../object/Report";
 import { call } from "../../../../service/ApiService";
-import React from "react";
+import { Link } from "react-router-dom";
 
 const fetchUrl = async (page) => {
   const response = await call(`/report/all?page=${page}`, "GET");
@@ -24,7 +24,7 @@ function InfiniteReport() {
     queryKey: ["all-reports"],
     queryFn: ({ pageParam = 1 }) => fetchUrl(pageParam),
     getNextPageParam: (data) => {
-      return data.next == -1 ? data.next : undefined;
+      return data.next != -1 ? data.next : undefined;
     },
   });
 
@@ -37,9 +37,8 @@ function InfiniteReport() {
   }
 
   return (
-    <>
+    <div className={styles["reports"]}>
       <InfiniteScroll
-        className={styles["scroll"]}
         loadMore={() => {
           if (!isFetching) fetchNextPage();
         }}
@@ -47,18 +46,28 @@ function InfiniteReport() {
       >
         {data?.pages.map((page) => {
           return page.reports.map((report) => (
-            <Report
-              key={report.id}
-              title={report.title}
-              bookTitle={report.bookTitle}
-              createdAt={report.createdAt}
-              views={report.views}
-              likeCnt={report.likeCnt}
-            />
+            <div className={styles["report"]}>
+              <Link
+                key={report.id}
+                to={{
+                  pathname: "/detail",
+                  search: `?id=${report.id}`,
+                }}
+              >
+                <Report
+                  key={report.id}
+                  title={report.title}
+                  bookTitle={report.bookTitle ? report.bookTitle : "."}
+                  createdAt={report.createdAt}
+                  views={report.views}
+                  likeCnt={report.likeCnt}
+                />
+              </Link>
+            </div>
           ));
         })}
       </InfiniteScroll>
-    </>
+    </div>
   );
 }
 

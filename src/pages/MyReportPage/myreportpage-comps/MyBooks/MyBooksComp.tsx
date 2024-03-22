@@ -38,19 +38,21 @@ function MyBooksComp({ setbookModal, setBook, book }: OwnProps) {
 
   return (
     <div className={styles["book-shelf"]}>
-      {books &&
-        books.map((book) => {
-          return (
-            <div
-              key={book.bookId}
-              className={styles["book"]}
-              onClick={() => bookClickHandler(book)}
-            >
-              {book.bookTitle}
-            </div>
-          );
-        })}
-      <ImBookmark className={styles["bookmark"]} size={80} />
+      <div className={styles["book-wrapper"]}>
+        {books &&
+          books.map((book) => {
+            return (
+              <div
+                key={book.bookId}
+                className={styles["book"]}
+                onClick={() => bookClickHandler(book)}
+              >
+                {book.bookTitle}
+              </div>
+            );
+          })}
+      </div>
+      <ImBookmark className={styles["bookmark"]} size={66} />
     </div>
   );
 }

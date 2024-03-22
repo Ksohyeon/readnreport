@@ -2,6 +2,7 @@ import React from "react";
 
 import styles from "./MainNavigation.module.css";
 import { GrMenu } from "react-icons/gr";
+import logo from "img/logo.svg";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { openSideBar, closeSideBar } from "../../features/sideBar/sideBarSlice";
@@ -21,7 +22,7 @@ const MainNavigation: React.FC = () => {
   useEffect(() => {
     window.addEventListener("scroll", () => {
       let scrollY = window.scrollY;
-      if (scrollY > (window.innerHeight / 5) * 3) {
+      if (scrollY > (window.innerHeight / 3) * 2) {
         setNavbgcolor(true);
       } else {
         setNavbgcolor(false);
@@ -33,11 +34,9 @@ const MainNavigation: React.FC = () => {
     <>
       <div className={`${styles.nav} ${navbgcolor ? styles.bgcolor : ""}`}>
         <GrMenu className={styles["grmenu"]} size={40} onClick={openOrClode} />
-        <span>
-          <Link className={styles["site-name"]} to="/">
-            독서와 기록
-          </Link>
-        </span>
+        <Link className={styles["site-name"]} to="/">
+          <img src={logo} />
+        </Link>
       </div>
     </>
   );

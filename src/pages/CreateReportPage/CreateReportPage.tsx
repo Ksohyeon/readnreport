@@ -124,9 +124,9 @@ const WriteReportPage: React.FC = () => {
         </div>
         <div className={styles["report-content"]}>
           <textarea
+            className={styles["content-input"]}
             value={reportItem ? reportItem.content : " "}
             onChange={contentChangeHandler}
-            className={styles["content-input"]}
           ></textarea>
         </div>
       </div>

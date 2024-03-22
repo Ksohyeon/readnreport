@@ -1,4 +1,8 @@
 import { API_BASE_URL } from "../config/api-config";
+import {
+  getItemWithExpireTime,
+  setItemWithExpireTime,
+} from "./LocalStorageFunc";
 
 interface Options {
   headers: Headers;
@@ -12,7 +16,7 @@ export function call(api: string, method: string, request?: object) {
     "Content-Type": "application/json",
   });
 
-  const accessToken = localStorage.getItem("ACCESS_TOKEN");
+  const accessToken = getItemWithExpireTime("ACCESS_TOKEN");
   console.log("accessToken: ", accessToken);
   if (accessToken && accessToken !== null) {
     headers.append("Authorization", "Bearer " + accessToken);
@@ -54,22 +58,31 @@ interface User {
   nickname?: string;
 }
 
-export function signin(userDTO: User) {
-  console.log(userDTO);
-  return call("/auth/signin", "POST", userDTO).then((response) => {
-    if (response.token) {
-      localStorage.setItem("ACCESS_TOKEN", response.token);
-      localStorage.setItem("nickname", response.nickname);
-      window.location.href = "/";
-    } else {
+export async function signin(userDTO: User) {
+  call("/auth/signin", "POST", userDTO)
+    .then((response) => {
+      if (typeof response.token !== "undefined") {
+        setItemWithExpireTime(
+          "ACCESS_TOKEN",
+          response.token,
+          1000 * 60 * 60 * 24
+        );
+        setItemWithExpireTime(
+          "nickname",
+          response.nickname,
+          1000 * 60 * 60 * 24
+        );
+        window.location.href = "/";
+      }
+    })
+    .catch((error) => {
       alert("로그인 실패");
       window.location.reload();
-    }
-  });
+    });
 }
 
 export function signout() {
-  localStorage.setItem("ACCESS_TOKEN", "null");
+  localStorage.clear();
   window.location.href = "/login";
 }
 

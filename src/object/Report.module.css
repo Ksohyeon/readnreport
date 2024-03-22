@@ -1,23 +1,32 @@
 .report {
-  display: inline-block;
-  box-sizing: border-box;
-  width: 22%;
-  padding: 2% 3%;
-  margin: 3% 0;
-  border-radius: 1em;
-  background-color: #e9f4f7;
+  overflow: hidden;
+  white-space: nowrap;
 }
-
-.report:hover {
-  opacity: 60%;
-  cursor: pointer;
-}
-
-.report:not(:nth-child(4n)) {
-  margin-right: 4%;
-}
-
 .title {
-  margin-bottom: 1%;
   font-weight: bolder;
+}
+.report li:nth-child(2) {
+  font-size: 0.8em;
+  margin-top: 1vh;
+}
+.report li:nth-child(3) {
+  position: absolute;
+  right: 1vw;
+  bottom: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.like {
+  display: flex;
+  align-items: center;
+  margin-left: 1vw;
+}
+@media (max-width: 600px) {
+  .report li:nth-child(3) {
+    font-size: smaller;
+    left: 1.7vw;
+    right: 1.7vw;
+    bottom: 0.5vh;
+  }
 }

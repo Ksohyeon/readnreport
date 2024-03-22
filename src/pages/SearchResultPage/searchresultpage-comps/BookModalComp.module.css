@@ -41,6 +41,17 @@ li {
   scrollbar-width: none; /* Firefox */
 }
 
+.book {
+  width: fit-content;
+  height: fit-content;
+  animation: content-hide 0.5s;
+}
+@media (max-width: 600px) {
+  .modal {
+    width: 88vw;
+  }
+}
+
 .modal::-webkit-scrollbar {
   display: none;
 }
@@ -55,21 +66,17 @@ li {
   animation: modal-close 0.5s;
 }
 
-.book {
-  width: fit-content;
-  height: fit-content;
-  animation: content-hide 0.5s;
+.book-title {
+  font-weight: bold;
+  margin: 1.5vh 0;
 }
 
 .book-img {
   width: 170px;
+  height: 257px;
   position: relative;
   float: left;
-  margin: 1vh 2vw 3vh 1vw;
-}
-
-.modal li {
-  margin: 1vh 1vw;
+  margin: 0vh 3vw 2vh 2vw;
 }
 
 .modal li:not(:first-child, :nth-child(6)) {
@@ -91,8 +98,8 @@ li {
 
 .option-btns {
   position: relative;
-  top: 120px;
-  right: 1vw;
+  top: 130px;
+  right: 2vw;
 }
 .option-btns button {
   position: relative;
@@ -103,22 +110,37 @@ li {
   border-radius: 0.7em;
   font-weight: bold;
 }
-.option-btns button:hover {
-  cursor: pointer;
-  color: blueviolet;
-  transition: 0.2s ease-in-out;
-  opacity: 0.6;
-}
-
 .close-btn {
-  position: relative;
-  float: right;
-  left: 1.5vw;
+  position: absolute;
+  right: 1vw;
   top: -1vh;
   border: none;
   width: 36px;
   height: 36px;
   border-radius: 15px;
+  z-index: 1;
+}
+@media (max-width: 600px) {
+  .option-btns {
+    position: absolute;
+    top: 27.5vh;
+    right: 3.5vw;
+  }
+  .option-btns button {
+    font-size: 0.5em;
+  }
+  .close-btn {
+    right: 0.8vw;
+    top: -3.4vh;
+    width: 30px;
+    height: 30px;
+  }
+}
+.option-btns button:hover {
+  cursor: pointer;
+  color: blueviolet;
+  transition: 0.2s ease-in-out;
+  opacity: 0.6;
 }
 
 .chosen {

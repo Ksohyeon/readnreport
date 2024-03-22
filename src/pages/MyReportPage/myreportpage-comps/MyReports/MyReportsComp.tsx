@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./MyReportsComp.module.css";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { call } from "service/ApiService";
 import { Link } from "react-router-dom";
+import ArrowButton from "./buttons/ArrowButton";
+import Report from "object/Report";
 
 interface Report {
   id: string;
@@ -13,9 +15,8 @@ interface Report {
   createdAt: string;
 }
 
-const reportPerPage = 10;
-
 function MyReportsComp() {
+  const reportPerPage = useRef<number>(window.innerWidth <= 600 ? 9 : 10);
   const [currentPage, setCurrentPage] = useState(1);
 
   const prevHandler = () => {
@@ -33,7 +34,10 @@ function MyReportsComp() {
   const { data, isError, error, isLoading } = useQuery({
     queryKey: ["reports", currentPage],
     queryFn: () =>
-      call(`/report?display=${reportPerPage}&page=${currentPage}`, "GET"),
+      call(
+        `/report?display=${reportPerPage.current}&page=${currentPage}`,
+        "GET"
+      ),
     staleTime: 2000,
   });
 
@@ -44,14 +48,17 @@ function MyReportsComp() {
       queryClient.prefetchQuery({
         queryKey: ["reports", data.next],
         queryFn: () =>
-          call(`/report?display=${reportPerPage}&page=${data.next}`, "GET"),
+          call(
+            `/report?display=${reportPerPage.current}&page=${data.next}`,
+            "GET"
+          ),
       });
     }
   }, [currentPage, queryClient]);
 
   return (
     <>
-      <div className={styles["div2"]}>
+      <div className={`${styles["reports-wrapper"]}`}>
         <div className={styles["reports"]}>
           {!isLoading &&
             data.reports.map((report: Report) => {
@@ -64,14 +71,13 @@ function MyReportsComp() {
                       search: `?id=${report.id}`,
                     }}
                   >
-                    <div className={styles["report-content"]}>
-                      <div>{report.title}</div>
-                      <div>{report.bookTitle}</div>
-                      <div>{report.views}</div>
-                      <div>{report.likeCnt}</div>
-                      <div>{report.createdAt.slice(0, 10)}</div>
-                      <div></div>
-                    </div>
+                    <Report
+                      title={report.title}
+                      bookTitle={report.bookTitle}
+                      createdAt={report.createdAt}
+                      views={report.views}
+                      likeCnt={report.likeCnt}
+                    />
                   </Link>
                 </div>
               );
@@ -79,8 +85,27 @@ function MyReportsComp() {
         </div>
       </div>
       <div className={styles["btns"]}>
-        <button onClick={prevHandler}>prev</button>
-        <button onClick={nextHandler}>next</button>
+        <div className={styles["prev-btn"]} onClick={prevHandler}>
+          {currentPage > 1 && (
+            <>
+              <div className={styles["prev-arrow"]}>
+                <ArrowButton />
+              </div>
+              <div className={styles["prev-text"]}>prev</div>
+            </>
+          )}
+        </div>
+        <span className={styles["page-num"]}>{currentPage}</span>
+        <div className={styles["next-btn"]} onClick={nextHandler}>
+          {data && data.next !== -1 && (
+            <>
+              <div className={styles["next-arrow"]}>
+                <ArrowButton />
+              </div>
+              <div className={styles["next-text"]}>next</div>
+            </>
+          )}
+        </div>
       </div>
     </>
   );

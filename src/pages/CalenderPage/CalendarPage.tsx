@@ -30,6 +30,7 @@ const CalendarPage: React.FC = () => {
       `/mybook/cld?year=${currentYear}&month=${currentMonth + 1}`,
       "GET"
     ).then((response) => {
+      console.log("mybooks : ", response.data);
       setBooks(response.data);
     });
   }, [currentYear, currentMonth]);
@@ -38,12 +39,12 @@ const CalendarPage: React.FC = () => {
     <div className={styles.page}>
       <div className={styles.btngroup}>
         <button onClick={prevMonthHandler}>
-          <BiSolidLeftArrow size={20} />
+          <BiSolidLeftArrow size={20} color="#3f2718" />
         </button>
         <span>{currentYear} 년</span> &nbsp;&nbsp;
         <span>{currentMonth + 1} 월</span>
         <button onClick={nextMonthHandler}>
-          <BiSolidRightArrow size={20} />
+          <BiSolidRightArrow size={20} color="#3f2718" />
         </button>
       </div>
       <div className={styles["marks"]}>

@@ -5,27 +5,68 @@
   align-items: center;
   height: auto;
   background-size: cover;
+  background-color: rgb(170, 145, 121);
+}
+
+.sky {
+  position: absolute;
+  width: 100vw;
+  background-image: url("../../img/cloud.png");
+  background-position: top left;
+  background-size: cover;
+  animation: float 200s linear infinite;
+  overflow: hidden;
+  background-color: #71a6be;
+}
+
+.canvas {
+  z-index: 2;
+}
+
+.book {
+  position: absolute;
+  left: 0;
+  width: 50vw;
+  z-index: 3;
+}
+.reveal-text {
+  position: absolute;
+  width: 100vw;
+  z-index: 1;
+}
+
+@keyframes float {
+  from {
+    background-position: top left;
+  }
+  to {
+    background-position: top right;
+  }
 }
 
 .search-bar {
   margin: 10vh 0 0;
   position: absolute;
-  z-index: 2;
+  z-index: 3;
+  right: 5vw;
 }
 
-.element1 {
-  margin: 20vh 0 0;
+.ground {
+  height: 9vh;
+  width: 100vw;
+  background: linear-gradient(rgb(105, 86, 67), rgb(170, 145, 121));
+}
+
+.slide {
+  margin: 1vh 0 0;
   z-index: 1;
   width: 100vw;
 }
-
-.element {
-  margin: 15vh 0 0;
+.reports {
+  margin: 5vh 0 0;
   width: 100vw;
+  height: auto;
   z-index: 1;
 }
-
-.canvas {
-  position: absolute;
-  width: 100vw;
+@media (min-width: 600px) {
 }

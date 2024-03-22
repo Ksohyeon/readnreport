@@ -1,18 +1,71 @@
 .comp {
-  height: 93vh;
-  width: 40vw;
+  box-sizing: border-box;
+  height: 89vh;
+  width: 30vw;
 }
-
 .chat-space {
   box-sizing: border-box;
   border-radius: 20px;
-  background-color: aliceblue;
+  background-color: rgb(255, 255, 255);
   height: 73vh;
   padding: 3vh 2vw;
   margin: 3vh 2vw;
   overflow: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+.close-btn {
+  position: absolute;
+  right: 3.5vw;
+  top: 5vh;
+  color: purple;
+}
+
+.chat-form {
+  position: absolute;
+  width: 22vw;
+  height: 4vh;
+  display: flex;
+  align-items: center;
+  bottom: 20vh;
+}
+.chat-input {
+  width: 18vw;
+  height: 4vh;
+}
+.chat-btn {
+  box-sizing: content-box;
+  width: 4vw;
+  height: 4vh;
+  font-weight: light;
+}
+@media (max-width: 600px) {
+  .comp {
+    box-sizing: border-box;
+    width: 77vw;
+    height: 84vh;
+    margin-top: 5vh;
+  }
+  .chat-space {
+    padding: 3vh 7vw;
+    background-color: rgb(246, 227, 248);
+  }
+  .close-btn {
+    margin-top: 2vh;
+    right: 6vw;
+  }
+  .chat-form {
+    width: 59svw;
+    bottom: 14vh;
+  }
+  .chat-input {
+    width: 49vw;
+  }
+  .chat-btn {
+    box-sizing: content-box;
+    width: 10vw;
+    height: 4vh;
+  }
 }
 
 .text1 {
@@ -22,25 +75,8 @@
   align-items: center;
 }
 
-.chat-form {
-  position: fixed;
-  bottom: 20vh;
-  width: 32vw;
-  height: 4vh;
-  display: flex;
-  align-items: center;
-}
-
-.chat-input {
-  width: 28vw;
-  height: 4vh;
-  border: none;
-}
-
-.chat-btn {
-  width: 4vw;
-  height: 4vh;
-  font-weight: light;
+.close-btn:hover {
+  cursor: pointer;
 }
 
 .chat-btn:hover {

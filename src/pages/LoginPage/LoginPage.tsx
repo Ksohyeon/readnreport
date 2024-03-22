@@ -10,8 +10,6 @@ import { useDispatch } from "react-redux";
 const LoginPage: React.FC = () => {
   const [idValue, setId] = useState("");
   const [pwValue, setPw] = useState("");
-  const dispatch = useDispatch();
-
   const url = "http://localhost:8080/login";
 
   const IdHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,7 +49,7 @@ const LoginPage: React.FC = () => {
         <button className={styles["login-btn"]} onClick={handleSubmit}>
           로그인
         </button>
-        <button
+        {/* <button
           className={styles["google-login"]}
           onClick={() => {
             window.location.replace(url);
@@ -59,7 +57,7 @@ const LoginPage: React.FC = () => {
         >
           <img className={styles["google-icon"]} src={google} alt="google" />
           <div>Google 계정으로 로그인</div>
-        </button>
+        </button> */}
         <button className={styles["join-btn"]}>
           <Link to="/join" className={styles["text-link"]}>
             회원가입

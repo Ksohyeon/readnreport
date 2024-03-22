@@ -6,10 +6,6 @@ import { throttle } from "lodash";
 import { searchBook } from "../../service/ApiService";
 import { useNavigate } from "react-router-dom";
 
-interface SearchContent {
-  value: string;
-}
-
 interface Book {
   isbn: number;
   title: string;
@@ -35,11 +31,12 @@ const SearchBook: React.FC = () => {
         return;
       let searchResult = await searchBook(searchContent.current.value, 5);
       setReferenceItems(searchResult.items);
-    }, 1000),
+    }, 500),
     [searchContent]
   );
 
   const clickEmpty = useCallback(() => {
+    console.log("click empty");
     if (document.activeElement !== document.getElementById("searchBar")) {
       if (!document.getElementById("recommend")) return;
       setRecommendDisplay(false);
@@ -84,7 +81,7 @@ const SearchBook: React.FC = () => {
           className={styles["search-input"]}
           type="text"
           ref={searchContent}
-          placeholder="책제목 혹은 작가명을 통해 검색하세요"
+          placeholder="책제목 또는 작가명으로 검색"
           autoComplete="off"
           onFocus={focusSearchBar}
         ></input>
@@ -94,6 +91,7 @@ const SearchBook: React.FC = () => {
       </form>
 
       <div
+        id="recommend"
         className={`${styles.recommend} ${
           recommendDisplay ? "" : styles.recommendDisplay
         }`}
@@ -102,10 +100,15 @@ const SearchBook: React.FC = () => {
           searchContent.current &&
           referenceItems.map((item: Book) => {
             let idx = 0;
-            if (searchContent.current)
+            let before = "";
+            let after = "";
+            if (searchContent.current) {
               idx = item.title.indexOf(searchContent.current.value || "");
-            const before = item.title.substring(0, idx);
-            const after = item.title.substring(idx + 1);
+              before = item.title.substring(0, idx);
+              after = item.title.substring(
+                idx + searchContent.current.value.length
+              );
+            }
             return (
               <div className={styles["item"]} key={item.isbn}>
                 <div className={styles["img"]}>
@@ -117,7 +120,7 @@ const SearchBook: React.FC = () => {
                 </div>
                 <div className={styles["title"]}>
                   {before}
-                  <span className={styles["text1"]}>
+                  <span className={styles["input"]}>
                     {searchContent.current && searchContent.current.value}
                   </span>
                   {after}

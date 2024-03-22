@@ -5,26 +5,26 @@
   float: right;
 }
 
-.ul {
+.books {
   position: absolute;
   width: 80vw;
   top: 15vh;
   border-radius: 20px;
-  background-color: rgb(227, 242, 245);
+  background-color: rgb(240, 240, 240);
   margin: 3vh 10vw;
   z-index: 1;
 }
 
-.ul > li {
+.books > li {
   padding: 2vh 2vw;
   border-radius: 20px;
 }
-.ul > li > li:not(:last-child) {
+.books > li > li:not(:last-child) {
   margin-bottom: 1vh;
 }
 
 .book:hover {
-  background-color: rgb(214, 232, 236);
+  background-color: rgb(221, 221, 221);
   cursor: pointer;
 }
 
@@ -39,6 +39,14 @@
   clear: left;
 }
 
+.modalwrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(83, 83, 83, 0.626);
+  z-index: 3;
+}
+
 .modal {
   position: fixed;
   margin: 0 auto;
@@ -46,13 +54,6 @@
   top: 50%;
   z-index: 3;
   transform: translate(-50%, -50%);
-}
-.modalwrapper {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(83, 83, 83, 0.626);
-  z-index: 3;
 }
 
 .close {
@@ -73,11 +74,5 @@
   font-weight: bold;
   padding: 2vh 2vw;
   border-radius: 10px;
-  background-color: rgba(209, 209, 209, 0.353);
-}
-
-.modal-wrapper {
-  width: 100vw;
-  height: 100vh;
   background-color: rgba(209, 209, 209, 0.353);
 }

@@ -3,13 +3,15 @@ import { signout } from "../../service/ApiService";
 import { useSelector } from "react-redux";
 import React from "react";
 import styles from "./SideBar.module.css";
+import { FaPencilAlt } from "react-icons/fa";
+import ButtonComp from "components/ButtonComp/ButtonComp";
 
-interface LoginCheck {
+export interface LoginCheck {
   isLoggedIn: boolean;
   nickname: string;
 }
 
-interface AuthState {
+export interface AuthState {
   auth: LoginCheck;
 }
 
@@ -22,43 +24,54 @@ const SideBar: React.FC = () => {
       {!isLoggedIn && (
         <div>
           <div className={styles.mot}>
-            <span>내가 세계를 알게 된 것은</span>
+            <span>내가 세계를</span>
+            <br />
+            <span>알게 된 것은</span>
             <br />
             <span>책에 의해서였다.</span>
             <br />
             <span>- 사르트르</span>
           </div>
-          <div className={styles["btn1"]}>
-            <Link className={styles["text-link"]} to="/login">
-              로그인
-            </Link>
+          <div className={styles["buttons"]}>
+            <div className={styles["btn"]}>
+              <Link className={styles["text-link"]} to="/login">
+                <ButtonComp content={"로그인"} />
+              </Link>
+            </div>
           </div>
         </div>
       )}
       {isLoggedIn && (
         <div>
           <div className={styles["profile-img"]}></div>
-          <div className={styles["user-name"]}>{nickname}</div>
+          <div className={styles["user-name"]}>
+            {nickname}&nbsp;
+            <span>
+              <Link className={styles["text-link"]} to={"/user-info"}>
+                <FaPencilAlt />
+              </Link>
+            </span>
+          </div>
           <div className={styles["buttons"]}>
             <div className={styles["btn"]}>
               <Link className={styles["text-link"]} to="/bookshelf">
-                나의 기록
+                <ButtonComp content={"책장으로"} />
               </Link>
             </div>
             <div className={styles["btn"]}>
               <Link className={styles["text-link"]} to="/calendar">
-                독서 달력
+                <ButtonComp content={"독서달력"} />
               </Link>
             </div>
             <div className={styles["btn"]}>
               <Link className={styles["text-link"]} to={"/friends"}>
-                독서친구
+                <ButtonComp content={"독서친구"} />
               </Link>
             </div>
-            <div className={styles["btn"]}>프로필 변경</div>
             <div className={`${styles.btn} ${styles.logout}`} onClick={signout}>
-              로그아웃
+              <ButtonComp content="로그아웃" />
             </div>
+            {/* <ButtonComp content={} /> */}
           </div>
         </div>
       )}

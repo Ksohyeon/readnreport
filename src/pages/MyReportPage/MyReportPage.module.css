@@ -1,49 +1,59 @@
-.bs {
-  height: 37vh;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
+.page {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(235, 220, 200);
 }
 
+.bs {
+  width: 100%;
+  height: 38vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .bs::before {
-  height: 50vh;
+  height: 100%;
   width: 100vw;
-  background-color: #dbecf3;
+  background-color: #70a369;
   background-size: cover;
   position: absolute;
   content: "";
 }
-
-.div1 {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  right: 0;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .menu-name {
   position: absolute;
   width: 100vw;
   left: 0;
 }
-
+.reports {
+  width: 100vw;
+  height: 100%;
+  background-color: rgb(255, 171, 61);
+}
 .create-update-btn {
-  color: inherit;
-  text-decoration: inherit;
-  background-color: black;
+  position: absolute;
+  right: 3vw;
+  top: -12vh;
+  align-self: center;
   height: fit-content;
   padding: 10px 15px;
-  border-radius: 20px;
   color: white;
+  background-color: black;
+  text-decoration: inherit;
+  border-radius: 20px;
   font-weight: bolder;
-  align-self: center;
-  position: absolute;
-  margin-top: 7vh;
-  right: 3vw;
+}
+@media (min-width: 992px) {
+  .create-update-btn {
+  }
+}
+@media (max-width: 991px) and (min-width: 601px) {
+}
+@media (max-width: 600px) {
+  .create-update-btn {
+  }
 }
 
 .create-update-btn:hover {

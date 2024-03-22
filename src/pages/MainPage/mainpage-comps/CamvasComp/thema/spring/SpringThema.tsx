@@ -60,12 +60,13 @@ export class Flower {
     this.x = x;
     this.y = y;
     this.h = Math.random() * 10 + 25;
+    if (window.innerWidth <= 600) this.h /= 5 / 3;
     this.x2 = this.x;
     this.y2 = this.y - this.h;
     this.x3 = this.x;
     this.y3 = this.y - this.h * 2;
     this.degree = 0;
-    this.speed = 0.5;
+    this.speed = 0.25;
     this.dir = 1; // 1: right, -1: left
     this.petals = [];
   }
@@ -124,7 +125,7 @@ export class SpringThema {
         const flower = this.flowers[i];
         flower.update();
         context.beginPath();
-        context.strokeStyle = "rgba(88,139,60,1)";
+        context.strokeStyle = "#527a3c";
         context.moveTo(flower.x, flower.y);
         context.quadraticCurveTo(flower.x2, flower.y2, flower.x3, flower.y3);
         context.stroke();
@@ -132,7 +133,7 @@ export class SpringThema {
 
         context.beginPath();
         context.moveTo(flower.x3, flower.y3);
-        context.fillStyle = "rgba(255,255,255,1)";
+        context.fillStyle = "#ffcf67";
 
         for (let j = 0; j < flower.petals.length; j++) {
           const petal = flower.petals[j];

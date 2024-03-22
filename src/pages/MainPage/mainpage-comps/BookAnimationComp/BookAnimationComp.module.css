@@ -1,0 +1,140 @@
+.book-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 30vw;
+  animation: bounce 1s infinite ease-in-out alternate;
+}
+
+.book-joint {
+  position: absolute;
+  bottom: -6px;
+  width: 11px;
+  height: 10px;
+  transform: skewY(45deg);
+  background-color: rgb(185, 73, 58);
+}
+
+.book {
+  position: relative;
+
+  border-radius: 0 7px 7px 0;
+}
+
+@media (min-width: 992px) {
+  .book-wrapper {
+    width: 50vw;
+    height: 66vh;
+  }
+  .book {
+    height: 20vh;
+    width: 16vh;
+  }
+}
+@media (max-width: 991px) and (min-width: 601px) {
+}
+@media (max-width: 600px) {
+  .book-wrapper {
+    width: 100vw;
+    height: 55vh;
+  }
+  .book {
+    height: 9vh;
+    width: 7.2vh;
+    font-size: 8px;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  95% {
+    transform: translateY(-2vh);
+  }
+  100% {
+    transform: translateY(-2vh);
+  }
+}
+
+.book:hover {
+  animation: rotation 0.2s normal none 2;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotateY(0deg);
+  }
+  30% {
+    transform: rotateY(60deg);
+  }
+  60% {
+    transform: rotateY(300deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(185, 73, 58);
+  border-radius: 0 7px 7px 0;
+}
+
+.rest-pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "oribit";
+  font-weight: bold;
+  text-align: center;
+  white-space: pre-wrap;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 0 7px 7px 0;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 2px 0 rgb(168, 168, 168), 4px 4px 0 rgb(255, 255, 255),
+    6px 6px 0 rgb(168, 168, 168), 8px 8px 0 rgb(255, 255, 255),
+    11px 11px 0 rgb(185, 73, 58);
+}
+
+.page:hover {
+  cursor: pointer;
+  transform-origin: left;
+  animation: open 0.5s forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes open {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+.close {
+  cursor: pointer;
+  transform-origin: left;
+  animation: close 0.5s forwards ease-in-out;
+}
+
+@keyframes close {
+  0% {
+    transform: rotateY(180deg);
+  }
+  50% {
+    transform: rotateY(100deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}

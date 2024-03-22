@@ -1,51 +1,55 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "./MyFriendComp.module.css";
 import { IoPerson } from "react-icons/io5";
-import { IoChatbubbleEllipses } from "react-icons/io5";
 import { FaPlus } from "react-icons/fa6";
 import { call } from "service/ApiService";
-import { Channel } from "../MyFriendPage";
-import MakeChannelModalComp from "../MakeChannelModalComp/MakeChannelModalComp";
-
-export interface Friend {
-  fid: string;
-  fnickname: string;
-  fuserId: string;
-  userID: string;
-  chosen?: boolean;
-}
+import { Channel, Friend, PageType } from "../MyFriendPage";
+import MakeFriendModalComp from "../MakeFriendModalComp/MakeFriendModalComp";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { AuthState } from "components/SideBar/SideBar";
 
 interface OwnProps {
-  setChannelList: React.Dispatch<React.SetStateAction<Channel[]>>;
+  friendList: Friend[];
+  setCurComp: React.Dispatch<React.SetStateAction<PageType>>;
+  setFriendList: React.Dispatch<React.SetStateAction<Friend[]>>;
+  setCurrentChannel: React.Dispatch<React.SetStateAction<Channel>>;
 }
 
-const MyFriendComp = ({ setChannelList }: OwnProps) => {
-  const addFriendInputRef = useRef<HTMLInputElement>(null);
-  const [friendList, setFriendList] = useState<Friend[]>([]);
-  const [isMakeChannelModelOpen, setIsMakeChannelModelOpen] = useState(false);
-
-  const handleSubmit = useCallback(
-    (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
-      if (!addFriendInputRef.current) return;
-      call("/friend/add", "POST", {
-        fnickname: addFriendInputRef.current.value,
-      }).then((response) => {
-        setFriendList(response.data);
-      });
-    },
-    []
-  );
+const MyFriendComp = ({
+  setCurComp,
+  friendList,
+  setFriendList,
+  setCurrentChannel,
+}: OwnProps) => {
+  const [isMakeFriendModalOpen, setIsMakeFriendModalOpen] = useState(false);
+  const myNickName = useSelector((state: AuthState) => state.auth.nickname);
+  const navigate = useNavigate();
 
   const handleMakeChannel = useCallback((friend: Friend) => {
     call("/channel/new", "POST", [friend]).then((response) => {
-      console.log(response);
-      setChannelList(response);
+      const channel = response[0];
+      console.log(channel);
+      setCurrentChannel({
+        channelId: channel.channelId,
+        userId: friend.userID,
+        members: [
+          { channelId: channel.channelId, nickname: myNickName, userId: "" },
+          {
+            channelId: channel.channelId,
+            nickname: friend.fnickname,
+            userId: friend.fid,
+          },
+        ],
+      });
+
+      navigate(`/friends?channel_id=${channel.channelId}`);
+      setCurComp("chat-list");
     });
   }, []);
 
-  const handleMakeChannelModal = useCallback(() => {
-    setIsMakeChannelModelOpen((prev) => !prev);
+  const handleMakeFriendModal = useCallback(() => {
+    setIsMakeFriendModalOpen((prev) => !prev);
   }, []);
 
   useEffect(() => {
@@ -57,12 +61,11 @@ const MyFriendComp = ({ setChannelList }: OwnProps) => {
 
   return (
     <div className={styles["page"]}>
-      {isMakeChannelModelOpen && (
-        <div style={{ position: "absolute", zIndex: "2" }}>
-          <MakeChannelModalComp
-            setChannelList={setChannelList}
-            friendList={friendList}
-            setIsMakeChannelModelOpen={setIsMakeChannelModelOpen}
+      {isMakeFriendModalOpen && (
+        <div style={{ position: "absolute", zIndex: "1" }}>
+          <MakeFriendModalComp
+            setFriendList={setFriendList}
+            setIsMakeFriendModalOpen={setIsMakeFriendModalOpen}
           />
         </div>
       )}
@@ -70,14 +73,6 @@ const MyFriendComp = ({ setChannelList }: OwnProps) => {
         <div className={styles["text1"]}>
           <IoPerson size={20} />
           친구목록{`(${friendList.length})`}
-          <span
-            className={styles["chat-icon"]}
-            onClick={handleMakeChannelModal}
-          >
-            <IoChatbubbleEllipses size={20} />
-            &nbsp;
-            <FaPlus size={17} />
-          </span>
         </div>
         {friendList.map((friend, idx) => {
           return (
@@ -112,12 +107,16 @@ const MyFriendComp = ({ setChannelList }: OwnProps) => {
           );
         })}
       </div>
-      <div className={styles["friend-add"]}>
-        <div className={styles["text1"]}>친구 추가</div>
-        <form onSubmit={handleSubmit}>
-          <input ref={addFriendInputRef} placeholder="닉네임으로 추가" />
-          <button type="submit">추가</button>
-        </form>
+      <div className={styles["buttons"]}>
+        <div className={styles["icon"]} onClick={handleMakeFriendModal}>
+          <span>
+            <IoPerson size={24} />
+          </span>
+          &nbsp;
+          <span>
+            <FaPlus size={12} />
+          </span>
+        </div>
       </div>
     </div>
   );

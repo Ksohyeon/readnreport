@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { Friend } from "../MyFriendComp/MyFriendComp";
+import React, { useCallback, useState } from "react";
 import styles from "./MakeChannelModalComp.module.css";
-import { IoCloseSharp } from "react-icons/io5";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 import { Dictionary } from "lodash";
 import { call } from "service/ApiService";
-import { Channel } from "../MyFriendPage";
+import { Channel, Friend } from "../MyFriendPage";
 
 interface OwnProps {
   friendList: Friend[];
@@ -30,19 +29,20 @@ const MakeChannelModalComp = ({
         return copy;
       });
       console.log("member: " + members);
-      call("/channel/new", "POST", members).then((response) => {
+      call("/channel/new-group", "POST", members).then((response) => {
         console.log(response);
         setChannelList(response);
         setChosenDict({});
       });
+      setIsMakeChannelModelOpen(false);
     },
     [chosenDict]
   );
 
   return (
     <div className={styles["comp"]}>
-      <IoCloseSharp
-        size={27}
+      <IoIosCloseCircleOutline
+        size={30}
         className={styles["close-btn"]}
         onClick={() => {
           setIsMakeChannelModelOpen(false);
@@ -80,7 +80,7 @@ const MakeChannelModalComp = ({
             return <span>{nickname}</span>;
           })}
         </div>
-        <button onClick={handleCreateChannel}>채팅방 생성</button>
+        <button onClick={handleCreateChannel}>채팅방{`\n`}생성</button>
       </div>
     </div>
   );

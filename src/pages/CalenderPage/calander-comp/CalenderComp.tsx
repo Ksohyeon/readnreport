@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import styles from "./CalenderComp.module.css";
 import { Book } from "pages/MyReportPage/myreportpage-comps/MyBooks/MyBooksComp";
 
@@ -80,11 +80,15 @@ const CalenderComp = ({ currentYear, currentMonth, books }: OwnProps) => {
     dateList: [],
   });
 
+  const defaultDateList = useMemo<CalenderDate[]>(() => {
+    return makeCurMonthPage(currentYear, currentMonth);
+  }, [currentYear, currentMonth]);
+
   useEffect(() => {
     setCurrentPage({
       year: currentYear,
       month: currentMonth,
-      dateList: makeCurMonthPage(currentYear, currentMonth),
+      dateList: defaultDateList,
     });
   }, [currentYear, currentMonth]);
 
@@ -93,7 +97,7 @@ const CalenderComp = ({ currentYear, currentMonth, books }: OwnProps) => {
       const lastMonthDays =
         new Date(currentYear, currentMonth, 0).getDate() -
         currentPage.dateList[0].date;
-      const dateList = JSON.parse(JSON.stringify(currentPage.dateList));
+      const dateList = JSON.parse(JSON.stringify(defaultDateList));
       for (let book of books) {
         if (!book.startDate) continue;
 
@@ -106,7 +110,7 @@ const CalenderComp = ({ currentYear, currentMonth, books }: OwnProps) => {
           });
         }
 
-        if (book.endDate === null) continue;
+        if (!book.endDate) continue;
         const endDateY = parseInt(book.endDate.substring(0, 4));
         const endDateD = parseInt(book.endDate.substring(8, 10));
         if (endDateY == currentYear) {
@@ -117,7 +121,6 @@ const CalenderComp = ({ currentYear, currentMonth, books }: OwnProps) => {
         }
       }
       setCurrentPage((prev) => ({ ...prev, dateList: dateList }));
-      console.log(currentPage);
     }
   }, [books]);
 

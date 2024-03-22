@@ -21,3 +21,8 @@ code {
   height: 100%;
   margin: 0px;
 }
+
+a {
+  text-decoration-line: none;
+  color: black;
+}

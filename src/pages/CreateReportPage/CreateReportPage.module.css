@@ -5,13 +5,12 @@
 }
 
 .wr::before {
-  height: 50vh;
+  content: "";
+  height: 100vh;
   width: 100vw;
-  background-image: url("../../img/green.jpg");
+  background-color: #70a369;
   background-size: cover;
   position: absolute;
-  content: "";
-  opacity: 0.7;
 }
 
 .header {
@@ -20,32 +19,30 @@
 }
 
 .save-btn {
-  text-decoration: inherit;
-  background-color: black;
+  position: absolute;
+  right: 2vw;
   height: fit-content;
   padding: 10px 15px;
+  margin-top: 7vh;
+  text-decoration: inherit;
+  background-color: black;
   border-radius: 20px;
   color: white;
   font-weight: bolder;
-  align-self: center;
-  position: absolute;
-  right: 2vw;
-  margin-top: 7vh;
-}
-
-.save-btn:hover {
-  cursor: pointer;
 }
 
 .form {
   position: relative;
   width: 80vw;
-  height: fit-content;
-  border-radius: 30px;
-  background-color: #6d7e6c;
+  border-radius: 20px;
+  background-color: #99b995;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.save-btn:hover {
+  cursor: pointer;
 }
 
 .title {
@@ -60,16 +57,16 @@
 
 .title-input {
   box-sizing: border-box;
-  border-radius: 30px;
+  border-radius: 10px;
   border: 0;
-  height: 40px;
+  height: 5vh;
   width: 48%;
   padding-left: 10px;
 }
 
 .btw-input2 {
   box-sizing: border-box;
-  border-radius: 30px;
+  border-radius: 10px;
   border: 0;
   height: 40px;
   width: 70vw;
@@ -84,19 +81,15 @@
   justify-content: space-between;
 }
 
-.report-content {
-}
-
 .content-input {
   box-sizing: border-box;
-  border-radius: 30px;
+  border-radius: 10px;
   border: 0;
   height: 50vh;
   width: 70vw;
   margin-bottom: 5vh;
   padding: 2vw;
 }
-
 .public-private-btn {
   width: 100%;
   height: 6vh;
@@ -106,12 +99,38 @@
 }
 
 .public-private-btn button {
-  margin-right: 10%;
+  margin-right: 8%;
+  padding: 0.5vh 1vw;
   border: none;
   border-radius: 10px;
-  padding: 0.5vh 1vw;
 }
 
 .public-private-btn button:hover {
   cursor: pointer;
+}
+@media (max-width: 600px) {
+  .form {
+    width: 90vw;
+    height: 75vh;
+    margin-top: 1vh;
+  }
+  .title {
+    margin-top: 3vh;
+  }
+  .title-input {
+    height: 3.6vh;
+  }
+  .content-input {
+    width: 80vw;
+    height: 60vh;
+    margin-bottom: 3vh;
+  }
+  .public-private-btn {
+    height: 4vh;
+    margin: 1vh 0;
+  }
+  .public-private-btn button {
+    margin-right: 6vw;
+    padding: 0.5vh 2vw;
+  }
 }

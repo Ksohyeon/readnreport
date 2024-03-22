@@ -1,8 +1,9 @@
-import React from "react";
+import { useCallback } from "react";
 import { useEffect, useRef, useState } from "react";
 import styles from "./ImgSlider.module.css";
 import { IoIosArrowDropleft } from "react-icons/io";
 import { IoIosArrowDropright } from "react-icons/io";
+import { throttle } from "lodash";
 
 interface Book {
   title: string;
@@ -23,6 +24,8 @@ function ImgSlider({ books }: OwnProps) {
   const slideMargin = windowWidth > 992 ? 30 : windowWidth < 600 ? 15 : 18;
   const slideArrow = windowWidth > 992 ? 45 : windowWidth < 600 ? 30 : 36;
   const slides = [...books, ...books, ...books];
+  const [prevY, setPrevY] = useState<number>(0);
+  const [isScrolling, setIsScrolling] = useState<boolean>(false);
 
   const goToPrevious = () => {
     handleAnimate.current = true;
@@ -42,15 +45,17 @@ function ImgSlider({ books }: OwnProps) {
     setSlideFocus(false);
   };
 
+  // 타이머로 슬리이드 자동 이동
   useEffect(() => {
     let timer = setTimeout(() => {
       goToNext();
-    }, 4000);
+    }, 5000);
     return () => {
       clearTimeout(timer);
     };
   }, [currentIdx]);
 
+  // 바뀐 currentIdx로 슬라이드 요소를 이동
   useEffect(() => {
     setSlideX(-currentIdx * (slideWidth + slideMargin));
 

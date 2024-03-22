@@ -1,21 +1,19 @@
 .calender {
+  box-sizing: border-box;
   position: relative;
   bottom: 2vh;
-  box-sizing: border-box;
   width: 69vw;
   height: 69vh;
   padding: 2vh 3vw 3vh;
-  background-color: #f8efe2;
   border-radius: 30px;
+  background-color: #eed1a8;
 }
-
 .day-list li {
   display: inline-block;
   width: 9vw;
   height: 4vh;
   text-align: center;
 }
-
 .container {
   box-sizing: border-box;
   width: 63vw;
@@ -24,11 +22,6 @@
   grid-template-columns: repeat(7, 9vw);
   grid-template-rows: repeat(6, 10vh);
 }
-
-.element {
-  display: inline-block;
-}
-
 .content {
   box-sizing: border-box;
   width: 96%;
@@ -42,6 +35,31 @@
   overflow: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+@media (min-width: 992px) {
+}
+@media (max-width: 991px) and (min-width: 601px) {
+}
+@media (max-width: 600px) {
+  .calender {
+    width: 90vw;
+    height: 50vh;
+    padding: 1vh 3vw;
+    font-size: 12px;
+  }
+  .day-list li {
+    width: calc(9vw / 69 * 90);
+  }
+  .container {
+    width: calc(63vw / 69 * 90);
+    height: calc(50vh / 69 * 50);
+    grid-template-columns: repeat(7, calc(9vw / 69 * 90));
+    grid-template-rows: repeat(6, calc(10vh / 69 * 50));
+  }
+}
+
+.element {
+  display: inline-block;
 }
 
 .content > div:nth-child(2) {

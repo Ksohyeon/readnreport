@@ -20,7 +20,7 @@ function SearchResultPage() {
   const [searchParmas] = useSearchParams();
   const query = searchParmas.get("query") || "";
 
-  const [books, setBooks] = useState<Books>([]);
+  const [books, setBooks] = useState<Books>();
   const [selectdBook, setSelectedBook] = useState<Book>({
     title: "",
     author: "",
@@ -46,9 +46,17 @@ function SearchResultPage() {
 
   if (books == null)
     return (
-      <>
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <p>loading..</p>
-      </>
+      </div>
     );
 
   if (books.length === 0) {
@@ -67,7 +75,7 @@ function SearchResultPage() {
       <div className={styles["searchbook"]}>
         <SearchBook />
       </div>
-      <ul className={styles["ul"]}>
+      <ul className={styles["books"]}>
         {books &&
           books.map((book) => {
             return (
