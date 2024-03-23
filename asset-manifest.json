@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/littlebookshelf/static/css/main.dcdcb02b.css",
-    "main.js": "/littlebookshelf/static/js/main.935cc0dd.js",
-    "static/js/787.0dd65c3b.chunk.js": "/littlebookshelf/static/js/787.0dd65c3b.chunk.js",
-    "static/media/SF함박눈TTF.ttf": "/littlebookshelf/static/media/SF함박눈TTF.14ca71d7177c18e6f850.ttf",
-    "static/media/Orbit-Regular.ttf": "/littlebookshelf/static/media/Orbit-Regular.e65de216aa44374db0f9.ttf",
-    "static/media/cloud.png": "/littlebookshelf/static/media/cloud.d9f3446fdb8cb1c774e4.png",
-    "static/media/logo.svg": "/littlebookshelf/static/media/logo.07d1dff6e9f450b85e05ca5fc0a357ad.svg",
-    "index.html": "/littlebookshelf/index.html",
-    "main.dcdcb02b.css.map": "/littlebookshelf/static/css/main.dcdcb02b.css.map",
-    "main.935cc0dd.js.map": "/littlebookshelf/static/js/main.935cc0dd.js.map",
-    "787.0dd65c3b.chunk.js.map": "/littlebookshelf/static/js/787.0dd65c3b.chunk.js.map"
+    "main.css": "/readnreport/static/css/main.cec6194d.css",
+    "main.js": "/readnreport/static/js/main.aa08a9e8.js",
+    "static/js/787.0dd65c3b.chunk.js": "/readnreport/static/js/787.0dd65c3b.chunk.js",
+    "static/media/SF함박눈TTF.ttf": "/readnreport/static/media/SF함박눈TTF.14ca71d7177c18e6f850.ttf",
+    "static/media/Orbit-Regular.ttf": "/readnreport/static/media/Orbit-Regular.e65de216aa44374db0f9.ttf",
+    "static/media/cloud.png": "/readnreport/static/media/cloud.d9f3446fdb8cb1c774e4.png",
+    "static/media/logo.svg": "/readnreport/static/media/logo.07d1dff6e9f450b85e05ca5fc0a357ad.svg",
+    "index.html": "/readnreport/index.html",
+    "main.cec6194d.css.map": "/readnreport/static/css/main.cec6194d.css.map",
+    "main.aa08a9e8.js.map": "/readnreport/static/js/main.aa08a9e8.js.map",
+    "787.0dd65c3b.chunk.js.map": "/readnreport/static/js/787.0dd65c3b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dcdcb02b.css",
-    "static/js/main.935cc0dd.js"
+    "static/css/main.cec6194d.css",
+    "static/js/main.aa08a9e8.js"
   ]
 }
