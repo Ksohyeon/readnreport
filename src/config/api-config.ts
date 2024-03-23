@@ -3,7 +3,8 @@ let backendHost;
 const hostname = window && window.location && window.location.hostname;
 
 if (hostname === "localhost") {
-  backendHost = "http://localhost:8080";
+  // backendHost = "http://localhost:8080";
+  backendHost = "http://3.37.61.7:8080";
 }
 
 export const API_BASE_URL = `${backendHost}`;
