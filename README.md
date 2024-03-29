@@ -19,9 +19,12 @@
 ✔️주요 구현 내용
 1. 로그인 상태 관리 기능
 ![flow1](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow1.png)
-2. 도서 검색 기능
-![flow2](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow2.png)
-3. 게시글 무한 스크롤 기능
-![flow3](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow3.png)
-4. 채팅 기능
-![flow4](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow4.png)
+
+3. 도서 검색 기능
+![flow2](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow2.jpeg)
+
+5. 게시글 무한 스크롤 기능
+![flow3](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow3.jpeg)
+
+7. 채팅 기능
+![flow4](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow4.jpeg)
