@@ -1,7 +1,14 @@
 .text-wrapper {
   position: absolute;
-  right: 10vw;
-  top: 5vh;
+  right: 12vw;
+  top: 9vh;
+}
+
+@media (max-width: 600px) {
+  .text-wrapper {
+    right: 10vw;
+    top: 5vh;
+  }
 }
 
 .text1 {
@@ -32,7 +39,7 @@
   animation-delay: 4.4s;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 601px) {
   .text-wrapper {
     margin-top: 17%;
     width: 500px;
@@ -46,7 +53,7 @@
 }
 @media (max-width: 600px) {
   .text-wrapper {
-    margin-top: 77%;
+    margin-top: 70%;
     width: 300px;
   }
   .text1,

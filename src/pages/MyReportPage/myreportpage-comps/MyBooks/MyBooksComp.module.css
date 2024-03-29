@@ -1,3 +1,11 @@
+.bookshelf-wrapper {
+  width: 100vw;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  justify-content: center;
+}
+
 .book-shelf {
   box-sizing: border-box;
   position: absolute;
@@ -23,19 +31,19 @@
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  font-size: 1em;
   height: 100%;
-  padding: 5px;
-  align-self: last baseline;
+  padding: 1vh 0.3vw;
+  font-size: 0.9em;
+  letter-spacing: 1.5px;
   writing-mode: vertical-lr;
   font-weight: bolder;
   overflow: hidden;
-  border-right: 1px solid rgb(95, 91, 87);
+  border-right: 1px solid rgb(43, 40, 37);
   background: linear-gradient(
     0.25turn,
-    rgb(135, 129, 124),
-    rgb(255, 250, 239),
-    rgb(135, 129, 124)
+    rgb(126, 120, 115),
+    rgb(255, 249, 241),
+    rgb(126, 120, 115)
   );
   transition: 0.2s ease-in-out;
 }
@@ -46,27 +54,32 @@
   transition: 0.3s ease-in-out;
 }
 .bookmark {
-  position: fixed;
-  translate: 0 -30px;
+  position: absolute;
+  z-index: 1;
 }
 
 @media (min-width: 992px) {
+  .bookshelf-wrapper {
+    height: 24vh;
+  }
   .book {
-    width: 2.5vw;
+    width: 36px;
   }
   .bookmark {
     right: 20vw;
   }
 }
-@media (max-width: 991px) and (min-width: 601px) {
-}
+
 @media (max-width: 600px) {
+  .bookshelf-wrapper {
+    height: 22vh;
+  }
   .book-shelf {
     width: 86vw;
     height: 22vh;
   }
   .book {
-    width: 7vw;
+    width: 30px;
   }
   .bookmark {
     right: 15vw;

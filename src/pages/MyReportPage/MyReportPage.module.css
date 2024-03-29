@@ -4,17 +4,17 @@
   background-color: rgb(235, 220, 200);
 }
 
-.bs {
+.bookshelf {
+  position: relative;
+  display: flex;
   width: 100%;
   height: 38vh;
   overflow: hidden;
-  position: relative;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.bs::before {
+.bookshelf::before {
   height: 100%;
   width: 100vw;
   background-color: #70a369;
@@ -22,28 +22,25 @@
   position: absolute;
   content: "";
 }
-.menu-name {
-  position: absolute;
-  width: 100vw;
-  left: 0;
-}
+
 .reports {
+  position: relative;
   width: 100vw;
   height: 100%;
   background-color: rgb(255, 171, 61);
 }
 .create-update-btn {
   position: absolute;
-  right: 3vw;
-  top: -12vh;
+  right: 5vw;
+  top: 12vh;
   align-self: center;
-  height: fit-content;
   padding: 10px 15px;
   color: white;
   background-color: black;
   text-decoration: inherit;
   border-radius: 20px;
   font-weight: bolder;
+  z-index: 1;
 }
 @media (min-width: 992px) {
   .create-update-btn {
@@ -53,6 +50,7 @@
 }
 @media (max-width: 600px) {
   .create-update-btn {
+    top: 8vh;
   }
 }
 
@@ -70,4 +68,5 @@
   align-items: center;
   justify-content: center;
   background-color: rgba(191, 191, 191, 0.364);
+  z-index: 2;
 }

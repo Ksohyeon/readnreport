@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import styles from "./MyFriendPage.module.css";
 import MyFriendComp from "./MyFriendComp/MyFriendComp";
 import ChatChannelListComp from "./ChatChannelListComp/ChatChannelListComp";
 import FriendPageSideBar from "./FriendPageSideBar/FriendPageSideBar";
+import { useDispatch } from "react-redux";
+import { closeSideBar } from "features/sideBar/sideBarSlice";
 
 interface Member {
   channelId: number;
@@ -27,6 +29,7 @@ export interface Friend {
 export type PageType = "friend-list" | "chat-list";
 
 const MyFriendPage: React.FC = () => {
+  const dispatch = useDispatch();
   const [curComp, setCurComp] = useState<PageType>("friend-list");
   const [friendList, setFriendList] = useState<Friend[]>([]);
   const [channelList, setChannelList] = useState<Channel[]>([]);
@@ -35,6 +38,10 @@ const MyFriendPage: React.FC = () => {
     userId: "",
     members: [],
   });
+
+  useEffect(() => {
+    dispatch(closeSideBar());
+  }, []);
 
   return (
     <div className={styles["page"]}>

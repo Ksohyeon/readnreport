@@ -85,19 +85,6 @@ const WriteReportPage: React.FC = () => {
 
   return (
     <div className={styles["wr"]}>
-      <div className={styles["header"]}>
-        {createOrUpdate && (
-          <div onClick={create} className={styles["save-btn"]}>
-            저&nbsp; &nbsp; &nbsp; &nbsp;장
-          </div>
-        )}
-        {!createOrUpdate && (
-          <div onClick={update} className={styles["save-btn"]}>
-            수&nbsp; &nbsp; &nbsp; &nbsp;정
-          </div>
-        )}
-      </div>
-
       <div className={styles["form"]}>
         <div className={styles["title"]}>
           <input
@@ -122,13 +109,23 @@ const WriteReportPage: React.FC = () => {
             <button onClick={isPublicChanceHandler}>비공개</button>
           )}
         </div>
-        <div className={styles["report-content"]}>
-          <textarea
-            className={styles["content-input"]}
-            value={reportItem ? reportItem.content : " "}
-            onChange={contentChangeHandler}
-          ></textarea>
-        </div>
+
+        <textarea
+          className={styles["content-input"]}
+          value={reportItem ? reportItem.content : " "}
+          onChange={contentChangeHandler}
+        ></textarea>
+
+        {createOrUpdate && (
+          <div onClick={create} className={styles["save-btn"]}>
+            저&nbsp; &nbsp; &nbsp; &nbsp;장
+          </div>
+        )}
+        {!createOrUpdate && (
+          <div onClick={update} className={styles["save-btn"]}>
+            수&nbsp; &nbsp; &nbsp; &nbsp;정
+          </div>
+        )}
       </div>
     </div>
   );

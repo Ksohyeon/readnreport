@@ -28,7 +28,7 @@ const JoinPage: React.FC = () => {
   const passwordHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
     const pw_exptext =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{9,20}$/;
+      /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{9,20}$/;
     if (pw_exptext.test(event.target.value) === false) {
       setPasswordCheck(true);
     } else {
@@ -83,7 +83,7 @@ const JoinPage: React.FC = () => {
         />
         <input
           className={styles["input"]}
-          type="text"
+          type="password"
           value={password}
           onChange={passwordHandler}
           placeholder="비밀번호"
@@ -95,7 +95,7 @@ const JoinPage: React.FC = () => {
         )}
         <input
           className={styles["input"]}
-          type="text"
+          type="password"
           value={passwordCk}
           onChange={passwordCkHandler}
           placeholder="비밀번호 확인"

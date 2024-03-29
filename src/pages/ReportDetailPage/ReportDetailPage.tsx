@@ -87,7 +87,7 @@ function ReportDetailPage() {
     <>
       {reportItem && (
         <div className={styles["report"]}>
-          <div className={styles["back-btn-wrapper"]}>
+          <div className={styles["report-wapper"]}>
             <button
               className={styles["back-btn"]}
               onClick={() => {
@@ -100,8 +100,6 @@ function ReportDetailPage() {
               />
               <div className={styles["text-list"]}>목록</div>
             </button>
-          </div>
-          <div className={styles["report-wapper"]}>
             <div className={styles["report-header"]}>
               <div className={styles["header-line"]}>
                 <div className={styles["title"]}>{reportItem.title}</div>

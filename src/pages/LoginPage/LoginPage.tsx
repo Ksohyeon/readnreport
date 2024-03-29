@@ -1,48 +1,48 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./LoginPage.module.css";
 import { BiSolidBookBookmark } from "react-icons/bi";
 import { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
-import google from "../../img/google_login.png";
 import { signin } from "../../service/ApiService";
-import { useDispatch } from "react-redux";
 
 const LoginPage: React.FC = () => {
-  const [idValue, setId] = useState("");
-  const [pwValue, setPw] = useState("");
-  const url = "http://localhost:8080/login";
+  const emailRef = useRef<HTMLInputElement>(null);
+  const pwRef = useRef<HTMLInputElement>(null);
 
-  const IdHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setId(event.target.value);
+  const submit = useCallback(() => {
+    if (!(emailRef.current && pwRef.current)) return;
+    console.log("!!: ", emailRef.current.value, pwRef.current.value);
+    if (emailRef.current.value !== "" && pwRef.current.value !== "")
+      signin({ email: emailRef.current.value, password: pwRef.current.value });
+    else alert("이메일과 비밀번호를 모두 입력해 주세요");
+  }, []);
+
+  const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    submit();
   };
 
-  const pwHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPw(event.target.value);
-  };
-
-  const handleSubmit = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
-      signin({ email: idValue, password: pwValue });
-    },
-    [idValue, pwValue]
-  );
+  useEffect(() => {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        submit();
+      }
+    });
+  }, []);
 
   return (
     <div className={styles["login"]}>
       <div className={styles["form"]}>
         <BiSolidBookBookmark className={styles["icon"]} size={70} />
         <input
+          ref={emailRef}
           type="text"
-          value={idValue}
-          onChange={IdHandler}
           className={styles["input-form"]}
-          placeholder="아이디를 입력해 주세요."
+          placeholder="이메일을 입력해 주세요."
         />
         <input
+          ref={pwRef}
           type="password"
-          value={pwValue}
-          onChange={pwHandler}
           className={styles["input-form"]}
           placeholder="비밀번호를 입력해 주세요."
         />

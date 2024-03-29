@@ -40,7 +40,7 @@ const ChatSpaceComp = ({ currentChannel, setIsChatSpaceOpen }: OwnProps) => {
 
   const connect = () => {
     client.current = new StompJs.Client({
-      brokerURL: "ws://localhost:8080/ws",
+      brokerURL: "ws://api.lettlebookshelf.org:8080/ws",
       reconnectDelay: 5000,
       onConnect: () => {
         console.log("success");
@@ -147,9 +147,14 @@ const ChatSpaceComp = ({ currentChannel, setIsChatSpaceOpen }: OwnProps) => {
         {chatList &&
           chatList.map((chat) => (
             <div
-              className={styles[`${chat.writer === myNickname ? "me" : ""}`]}
+              className={`${styles[chat.writer === myNickname ? "me" : ""]} ${
+                styles.chat
+              }`}
             >
-              {chat.writer}: {chat.chat}
+              <span>
+                {chat.writer === myNickname ? "" : chat.writer + " :"}
+              </span>{" "}
+              {chat.chat}
             </div>
           ))}
         {channelId && (

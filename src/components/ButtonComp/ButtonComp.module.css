@@ -39,15 +39,6 @@
   z-index: 1;
 }
 
-.pencil {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: -22px;
-  left: 0;
-  opacity: 0;
-}
-
 .button:hover svg {
   opacity: 1;
   animation: draw-line 0.8s linear forwards;

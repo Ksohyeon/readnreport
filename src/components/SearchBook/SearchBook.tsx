@@ -36,7 +36,6 @@ const SearchBook: React.FC = () => {
   );
 
   const clickEmpty = useCallback(() => {
-    console.log("click empty");
     if (document.activeElement !== document.getElementById("searchBar")) {
       if (!document.getElementById("recommend")) return;
       setRecommendDisplay(false);

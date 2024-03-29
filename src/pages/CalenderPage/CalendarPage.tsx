@@ -4,8 +4,12 @@ import { BiSolidLeftArrow, BiSolidRightArrow } from "react-icons/bi";
 import CalenderComp from "./calander-comp/CalenderComp";
 import { call } from "service/ApiService";
 import { Book } from "pages/MyReportPage/myreportpage-comps/MyBooks/MyBooksComp";
+import { useDispatch } from "react-redux";
+import { useFBO } from "@react-three/drei";
+import { closeSideBar } from "features/sideBar/sideBarSlice";
 
 const CalendarPage: React.FC = () => {
+  const dispatch = useDispatch();
   const today = useRef<Date>(new Date());
   const [currentYear, setCurrentYear] = useState(today.current.getFullYear());
   const [currentMonth, setCurrentMonth] = useState(today.current.getMonth());
@@ -24,6 +28,10 @@ const CalendarPage: React.FC = () => {
       setCurrentYear((prev) => prev + 1);
     } else setCurrentMonth((prev) => prev + 1);
   };
+
+  useEffect(() => {
+    dispatch(closeSideBar());
+  }, []);
 
   useEffect(() => {
     call(

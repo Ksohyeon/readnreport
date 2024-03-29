@@ -1,12 +1,12 @@
+import styles from "./Root.module.css";
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-import styles from "./Root.module.css";
-import MainNavigation from "../../components/MainNavigation/MainNavigation";
-import SideBar from "../../components/SideBar/SideBar";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { closeSideBar } from "../../features/sideBar/sideBarSlice";
 import { SidebarState } from "./Root";
+import { closeSideBar } from "../../features/sideBar/sideBarSlice";
+import SideBar from "../../components/SideBar/SideBar";
+import MainNavigation from "../../components/MainNavigation/MainNavigation";
 
 export const RootLayout: React.FC = () => {
   const sideBar = useSelector((state: SidebarState) => state.sideBar.isOpen);

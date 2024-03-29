@@ -1,7 +1,12 @@
 .reports {
   display: grid;
-  grid-template-rows: repeat(3, 20%);
+  /* grid-template-rows: repeat(3, 20%); */
   padding: 0% 20%;
+}
+@media (max-width: 991px), (min-width: 601) {
+  .reports {
+    grid-template-rows: repeat(2, 40%);
+  }
 }
 
 .report {
