@@ -21,10 +21,10 @@
 
 ✔️주요 구현 내용
 1. 로그인 상태 관리 기능
-![앱 주요 페이지 덤브 이미지](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow1.png)
+![flow1](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow1.png)
 2. 도서 검색 기능
-![앱 주요 페이지 덤브 이미지](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow2.png)
+![flow2](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow2.png)
 3. 게시글 무한 스크롤 기능
-![앱 주요 페이지 덤브 이미지](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow3.png)
+![flow3](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow3.png)
 4. 채팅 기능
-![앱 주요 페이지 덤브 이미지](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow4.png)
+![flow4](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow4.png)
