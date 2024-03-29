@@ -1,7 +1,4 @@
-# readnreport
-독후감 웹사이트
-
-## 독서 기록&채팅 사이트
+# 독서 기록&채팅 사이트
 
 ![앱 주요 페이지 덤브 이미지](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/pages.png)
 * 배포 주소 :   http://app-littlebookshelf.s3-website.ap-northeast-2.amazonaws.com/
