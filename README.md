@@ -14,17 +14,17 @@
 * FE: React / Redux-toolkit / Tenstack-Query / TypeScript
 * BE: Sping Boot, MySql
 
- ![앱 주요 페이지 덤브 이미지](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/techstack.png)
+<img src="https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/techstack.png" width="400"/>
 
 ✔️주요 구현 내용
 1. 로그인 상태 관리 기능
-![flow1](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow1.png)
+<img src="https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow1.png" width="400"/>
 
 3. 도서 검색 기능
-![flow2](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow2.jpeg)
+<img src="https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow2.jpeg" width="400"/>
 
 5. 게시글 무한 스크롤 기능
-![flow3](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow3.jpeg)
+<img src="https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow3.jpeg" width="400" />
 
 7. 채팅 기능
-![flow4](https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow4.jpeg)
+<img src="https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow4.jpeg" width="400"/>
