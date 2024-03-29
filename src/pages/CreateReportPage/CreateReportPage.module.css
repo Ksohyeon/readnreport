@@ -1,34 +1,32 @@
 .wr {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.wr::before {
-  content: "";
   height: 100vh;
   width: 100vw;
+  box-sizing: border-box;
+  padding-top: 5vh;
   background-color: #70a369;
-  background-size: cover;
-  position: absolute;
 }
-
-.header {
-  width: 100vw;
-  height: 110px;
+@media (max-width: 600px) {
+  .wr {
+    padding-top: 3vh;
+  }
 }
 
 .save-btn {
-  position: absolute;
-  right: 2vw;
+  position: relative;
   height: fit-content;
   padding: 10px 15px;
-  margin-top: 7vh;
   text-decoration: inherit;
   background-color: black;
   border-radius: 20px;
   color: white;
   font-weight: bolder;
+  margin-bottom: 2vh;
+  margin-right: 6vw;
+  align-self: flex-end;
 }
 
 .form {
@@ -39,6 +37,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  top: 10vh;
 }
 
 .save-btn:hover {
@@ -87,7 +86,7 @@
   border: 0;
   height: 50vh;
   width: 70vw;
-  margin-bottom: 5vh;
+  margin-bottom: 1vh;
   padding: 2vw;
 }
 .public-private-btn {

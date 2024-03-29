@@ -34,8 +34,8 @@ const MainNavigation: React.FC = () => {
     <>
       <div className={`${styles.nav} ${navbgcolor ? styles.bgcolor : ""}`}>
         <GrMenu className={styles["grmenu"]} size={40} onClick={openOrClode} />
-        <Link className={styles["site-name"]} to="/">
-          <img src={logo} />
+        <Link to="/">
+          <img className={styles["logo"]} src={logo} />
         </Link>
       </div>
     </>

@@ -89,3 +89,9 @@
 .me {
   text-align: end;
 }
+.chat {
+  margin-top: 15px;
+}
+.chat span {
+  font-weight: 600;
+}

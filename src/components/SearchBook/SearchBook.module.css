@@ -18,11 +18,10 @@
   box-shadow: 0 0 5px rgba(142, 142, 142, 0.834);
 }
 .item {
-  height: 5vh;
   width: 28.8vw;
   font-size: small;
   border: none;
-  padding: 0.7vw;
+  padding: 0.5vh 0.7vw;
   display: flex;
   position: relative;
   flex-direction: row;
@@ -45,8 +44,7 @@
   .item {
     box-sizing: border-box;
     width: 48.8vw;
-    height: 6vh;
-    padding: 0.5vh;
+    padding: 0.3vh 2vw;
   }
 }
 
@@ -82,10 +80,10 @@
 }
 
 .img {
-  width: 20%;
+  height: 100%;
 }
 .book-img {
-  height: 5vh;
+  height: 7vh;
   display: inline;
   z-index: 1;
 }
@@ -94,16 +92,21 @@
 }
 
 .title {
-  width: 50%;
+  width: 60%;
 }
 
 .author,
 .title {
-  height: 5vh;
-  overflow: hidden;
   position: relative;
-  margin: 0 5%;
+  box-sizing: border-box;
+  padding: 3px 0;
+  margin: 0 3%;
   z-index: 1;
+  display: -webkit-box;
+  overflow: hidden;
+  line-height: 1.7;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .input {

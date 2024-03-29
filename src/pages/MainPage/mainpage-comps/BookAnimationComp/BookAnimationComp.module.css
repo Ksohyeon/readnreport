@@ -21,7 +21,7 @@
   border-radius: 0 7px 7px 0;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 601px) {
   .book-wrapper {
     width: 50vw;
     height: 66vh;
