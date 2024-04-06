@@ -1,6 +1,6 @@
 # 독서 기록&채팅 사이트
 
-<img src="https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/pages.png" width="800"/>
+<img src="https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/pages1.png" width="800"/>
 * 배포 주소 :   http://app-littlebookshelf.s3-website.ap-northeast-2.amazonaws.com/
 
 ✔️개발 개요
@@ -20,11 +20,12 @@
 1. 로그인 상태 관리 기능
 <img src="https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow1.png" width="500"/>
 
-3. 도서 검색 기능
+2. 도서 검색 기능
+<img src="https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/book-search.png" width="600"/>
 <img src="https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow2.jpeg" width="500"/>
 
-5. 게시글 무한 스크롤 기능
+3. 게시글 무한 스크롤 기능
 <img src="https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow3.jpeg" width="500" />
 
-7. 채팅 기능
+4. 채팅 기능
 <img src="https://github.com/Ksohyeon/readnreport/blob/readme-edit/readme_img/flow4.jpeg" width="500"/>
