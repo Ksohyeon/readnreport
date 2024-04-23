@@ -1,9 +1,7 @@
-import { useCallback } from "react";
 import { useEffect, useRef, useState } from "react";
 import styles from "./ImgSlider.module.css";
 import { IoIosArrowDropleft } from "react-icons/io";
 import { IoIosArrowDropright } from "react-icons/io";
-import { throttle } from "lodash";
 
 interface Book {
   title: string;
@@ -24,8 +22,6 @@ function ImgSlider({ books }: OwnProps) {
   const slideMargin = windowWidth > 992 ? 30 : windowWidth < 600 ? 15 : 18;
   const slideArrow = windowWidth > 992 ? 45 : windowWidth < 600 ? 30 : 36;
   const slides = [...books, ...books, ...books];
-  const [prevY, setPrevY] = useState<number>(0);
-  const [isScrolling, setIsScrolling] = useState<boolean>(false);
 
   const goToPrevious = () => {
     handleAnimate.current = true;

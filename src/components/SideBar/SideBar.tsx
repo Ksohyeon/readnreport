@@ -23,17 +23,8 @@ const SideBar: React.FC = () => {
     <div className={styles.sidebar}>
       {!isLoggedIn && (
         <div>
-          <div className={styles.mot}>
-            <span>내가 세계를</span>
-            <br />
-            <span>알게 된 것은</span>
-            <br />
-            <span>책에 의해서였다.</span>
-            <br />
-            <span>- 사르트르</span>
-          </div>
           <div className={styles["buttons"]}>
-            <div className={styles["btn"]}>
+            <div className={styles["btn"]} style={{ marginTop: "10vh" }}>
               <Link className={styles["text-link"]} to="/login">
                 <ButtonComp content={"로그인"} />
               </Link>
