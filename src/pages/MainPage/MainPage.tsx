@@ -50,7 +50,7 @@ const MainPage = () => {
           <SearchBook />
         </div>
         <div className={styles["ground"]}></div>
-        <div className={styles["slide"]}>
+        <div>
           <WellReadBooks />
         </div>
         <div className={styles["reports"]}>

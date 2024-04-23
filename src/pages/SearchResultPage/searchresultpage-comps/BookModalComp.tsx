@@ -85,7 +85,6 @@ function BookModalComp({ book, setModalOpen }: OwnProps) {
         <li>{book.publisher}</li>
         {isLoggedIn && (
           <li className={styles["option-btns"]}>
-            <button>독후감 쓰기</button>
             <button
               onClick={addBookHandler}
               className={styles[`${isInBookShelf ? "chosen" : ""}`]}

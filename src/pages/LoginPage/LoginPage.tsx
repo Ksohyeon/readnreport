@@ -1,11 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./LoginPage.module.css";
 import { BiSolidBookBookmark } from "react-icons/bi";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { Link } from "react-router-dom";
 import { signin } from "../../service/ApiService";
+import { useDispatch } from "react-redux";
+import { closeSideBar } from "features/sideBar/sideBarSlice";
 
 const LoginPage: React.FC = () => {
+  const dispath = useDispatch();
   const emailRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);
 
@@ -23,6 +26,7 @@ const LoginPage: React.FC = () => {
   };
 
   useEffect(() => {
+    dispath(closeSideBar());
     document.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         submit();

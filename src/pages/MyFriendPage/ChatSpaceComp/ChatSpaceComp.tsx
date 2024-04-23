@@ -118,6 +118,12 @@ const ChatSpaceComp = ({ currentChannel, setIsChatSpaceOpen }: OwnProps) => {
 
     connect();
   }, [channelId]);
+  useEffect(() => {
+    const chatList = document.getElementById("chatList");
+    if (chatList) {
+      chatList.scrollTop = chatList.scrollHeight;
+    }
+  });
 
   return (
     <div className={styles["comp"]}>
@@ -143,20 +149,30 @@ const ChatSpaceComp = ({ currentChannel, setIsChatSpaceOpen }: OwnProps) => {
         <span className={styles["close-btn"]} onClick={handleClose}>
           <IoIosCloseCircleOutline size={30} />
         </span>
-        {/* <div>채널: {channelId}</div> */}
-        {chatList &&
-          chatList.map((chat) => (
-            <div
-              className={`${styles[chat.writer === myNickname ? "me" : ""]} ${
-                styles.chat
-              }`}
-            >
-              <span>
-                {chat.writer === myNickname ? "" : chat.writer + " :"}
-              </span>{" "}
-              {chat.chat}
-            </div>
-          ))}
+        <div
+          id="chatList"
+          style={{
+            height: "56vh",
+            display: "flex",
+            flexDirection: "column",
+            justifyItems: "flex-end",
+            overflowY: "auto",
+          }}
+        >
+          {chatList &&
+            chatList.map((chat) => (
+              <div
+                className={`${styles[chat.writer === myNickname ? "me" : ""]} ${
+                  styles.chat
+                }`}
+              >
+                <span>
+                  {chat.writer === myNickname ? "" : chat.writer + " :"}
+                </span>{" "}
+                {chat.chat}
+              </div>
+            ))}
+        </div>
         {channelId && (
           <form
             className={styles["chat-form"]}

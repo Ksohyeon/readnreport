@@ -114,7 +114,7 @@ export class SpringThema {
     }
   }
 
-  draw() {
+  draw(): any {
     const context = this.canvas.getContext("2d");
     if (context) {
       context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -156,6 +156,6 @@ export class SpringThema {
       }
     }
 
-    requestAnimationFrame(this.draw.bind(this));
+    return requestAnimationFrame(this.draw.bind(this));
   }
 }

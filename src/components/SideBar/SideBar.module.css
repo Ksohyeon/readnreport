@@ -1,19 +1,43 @@
+.sidebar {
+  background-color: rgb(235, 179, 95);
+}
+
+@media (min-width: 992px) {
+  .sidebar {
+    width: 200px;
+    height: 100vh;
+
+    padding: 2vw;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 601px) {
+  .sidebar {
+    width: 20vw;
+    height: 100vh;
+
+    padding: 2vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 35vw;
+    height: 100vh;
+
+    padding: 2vw;
+  }
+  .user-name {
+    margin-left: 4vw;
+  }
+}
+
 .grmenu {
   margin: 2em;
 }
 
 .grmenu:hover {
   cursor: pointer;
-}
-
-.mot {
-  text-align: center;
-  font-size: 0.9em;
-  line-height: 2em;
-  margin: 10vh 7% 3vh;
-  padding: 2vh 2vw;
-  border-radius: 20px;
-  background-color: rgba(177, 142, 118, 0.548);
 }
 
 .text-link {
@@ -50,38 +74,4 @@
 .logout {
   position: absolute;
   bottom: 5vh;
-}
-
-.sidebar {
-  background-color: rgb(235, 179, 95);
-}
-
-@media (min-width: 992px) {
-  .sidebar {
-    width: 17vw;
-    height: 100vh;
-
-    padding: 2vw;
-  }
-}
-
-@media (max-width: 991px) and (min-width: 601px) {
-  .sidebar {
-    width: 20vw;
-    height: 100vh;
-
-    padding: 2vw;
-  }
-}
-
-@media (max-width: 600px) {
-  .sidebar {
-    width: 35vw;
-    height: 100vh;
-
-    padding: 2vw;
-  }
-  .user-name {
-    margin-left: 4vw;
-  }
 }
