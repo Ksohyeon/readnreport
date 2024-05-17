@@ -2,7 +2,7 @@
   box-sizing: border-box;
   width: 100vw;
   height: 100vh;
-  padding-top: 8vh;
+  padding-top: 7vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,9 +12,43 @@
   font-weight: bolder;
 }
 
-.btngroup {
+.calender {
+  box-sizing: border-box;
   position: relative;
   bottom: 2vh;
+  width: 69vw;
+  padding: 3vh 3vw;
+  border-radius: 30px;
+  background-color: #eed1a8;
+}
+@media (max-width: 600px) {
+  .calender {
+    width: 90vw;
+  }
+}
+
+.chartBtnDiv {
+  width: 69vw;
+  display: flex;
+  flex-direction: column;
+  margin: 0 3vw 2vh 0;
+}
+
+.chartBtn {
+  align-self: flex-end;
+  padding: 0.5vh 1vw;
+  margin-bottom: 2vh;
+  font-weight: bold;
+  border-radius: 10px;
+}
+.chartBtn:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(86, 86, 86);
+}
+
+.btngroup {
+  position: relative;
   display: flex;
   justify-content: center;
   font-size: larger;
@@ -32,11 +66,10 @@
   position: relative;
   width: 100%;
   bottom: 2vh;
-  padding: 0 17vw;
   margin-bottom: 0.7%;
   display: flex;
   justify-content: end;
-  font-size: medium;
+  font-size: small;
   font-weight: bold;
 }
 .marks div {
@@ -46,9 +79,13 @@
   padding: 0.4% 0.6%;
 }
 @media (max-width: 600px) {
+  .chartBtnDiv {
+    width: 90vw;
+  }
   .marks {
-    padding: 0 10vw;
+    padding: 0 2vw;
     margin: 1.5%;
+    bottom: 5px;
   }
   .marks div {
     font-size: 12px;
