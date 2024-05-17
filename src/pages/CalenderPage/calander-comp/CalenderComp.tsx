@@ -1,11 +1,11 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import styles from "./CalenderComp.module.css";
 import { Book } from "pages/MyReportPage/myreportpage-comps/MyBooks/MyBooksComp";
 
 interface CalenderDate {
   date: number;
   day: number;
-  content: (Book & { startOrEnd: boolean })[];
+  content: (Book & { startOrEnd: "start" | "end" })[];
   isThisMonth: boolean;
 }
 interface CalenderMonth {
@@ -93,6 +93,7 @@ const CalenderComp = ({ currentYear, currentMonth, books }: OwnProps) => {
   }, [currentYear, currentMonth]);
 
   useEffect(() => {
+    // 독서 데이터 dataList에 추가하기
     if (currentPage.month) {
       const lastMonthDays =
         new Date(currentYear, currentMonth, 0).getDate() -
@@ -100,24 +101,27 @@ const CalenderComp = ({ currentYear, currentMonth, books }: OwnProps) => {
       const dateList = JSON.parse(JSON.stringify(defaultDateList));
       for (let book of books) {
         if (!book.startDate) continue;
-
-        const startDateY = parseInt(book.startDate.substring(0, 4));
-        const startDateD = parseInt(book.startDate.substring(8, 10));
-        if (startDateY == currentYear) {
-          dateList[startDateD + lastMonthDays].content.push({
-            ...book,
-            startOrEnd: true,
-          });
+        if (parseInt(book.startDate.substring(5, 7)) === currentMonth + 1) {
+          const startDateY = parseInt(book.startDate.substring(0, 4));
+          const startDateD = parseInt(book.startDate.substring(8, 10));
+          if (startDateY == currentYear) {
+            dateList[startDateD + lastMonthDays].content.push({
+              ...book,
+              startOrEnd: "start",
+            });
+          }
         }
 
         if (!book.endDate) continue;
-        const endDateY = parseInt(book.endDate.substring(0, 4));
-        const endDateD = parseInt(book.endDate.substring(8, 10));
-        if (endDateY == currentYear) {
-          dateList[endDateD + lastMonthDays].content.push({
-            ...book,
-            startOrEnd: false,
-          });
+        if (parseInt(book.endDate.substring(5, 7)) === currentMonth + 1) {
+          const endDateY = parseInt(book.endDate.substring(0, 4));
+          const endDateD = parseInt(book.endDate.substring(8, 10));
+          if (endDateY == currentYear) {
+            dateList[endDateD + lastMonthDays].content.push({
+              ...book,
+              startOrEnd: "end",
+            });
+          }
         }
       }
       setCurrentPage((prev) => ({ ...prev, dateList: dateList }));
@@ -136,19 +140,21 @@ const CalenderComp = ({ currentYear, currentMonth, books }: OwnProps) => {
         <li>sat</li>
       </ul>
       <div className={styles.container}>
-        {currentPage.dateList.map((page) => (
+        {currentPage.dateList.map((current_date) => (
           <div className={styles.element}>
             <div
               className={`${styles.content} ${
-                page.isThisMonth ? styles.thismonth : ""
+                current_date.isThisMonth ? styles.thismonth : ""
               }`}
             >
-              <div className={styles["date"]}>{page.date}</div>
+              <div className={styles["date"]}>{current_date.date}</div>
               <div>
-                {page.content.map((book) => (
+                {current_date.content.map((book) => (
                   <div
                     className={`${
-                      book.startOrEnd ? styles["start"] : styles["end"]
+                      book.startOrEnd === "start"
+                        ? styles["start"]
+                        : styles["end"]
                     }`}
                   >
                     {book.bookTitle}

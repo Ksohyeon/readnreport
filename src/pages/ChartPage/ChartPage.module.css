@@ -1,0 +1,126 @@
+.page {
+  width: 100vw;
+  height: 100vh;
+  background-color: #70a369;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.year {
+  display: flex;
+  align-items: center;
+  font-size: x-large;
+  margin-bottom: 20px;
+}
+
+.year svg {
+  margin: 0 10px;
+}
+.year svg:hover {
+  cursor: pointer;
+  color: rgb(105, 105, 105);
+}
+
+.chart {
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-end;
+  min-height: 50vh;
+  background-color: white;
+}
+
+.chartbarMonth {
+  position: relative;
+  display: inline-block;
+}
+
+.chartbar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0%;
+  }
+  50% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+.bookcnt {
+  width: 100%;
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: 500;
+  animation: fade-in 0.5s;
+  margin-bottom: 3px;
+}
+
+@keyframes grow-bar {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+.growbar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: purple;
+  animation: grow-bar 0.7s;
+}
+
+.month {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+@media (min-width: 992px) {
+  .chartbarMonth {
+    width: 25px;
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 601px) {
+  .chartbarMonth {
+    width: 20px;
+    margin: 0 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .chart {
+    position: relative;
+    min-height: 40vh;
+    margin: 0 20px;
+  }
+  .chartbarMonth {
+    width: 27px;
+    margin: 0 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .chartGrid {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: repeat(2, 50%);
+    grid-template-columns: repeat(6, 16.66%);
+  }
+}

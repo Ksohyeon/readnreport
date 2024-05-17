@@ -21,6 +21,7 @@ import { login, logout, setNickname } from "./features/auth/authSlice";
 import MyFriendPage from "pages/MyFriendPage/MyFriendPage";
 import UserInfoPage from "pages/UserInfoPage/UserInfoPage";
 import { getItemWithExpireTime } from "service/LocalStorageFunc";
+import ChartPage from "pages/ChartPage/ChartPage";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
         element: <MyReportPage />,
       },
       { path: "calendar", element: <CalendarPage /> },
+      { path: "chart", element: <ChartPage /> },
       { path: "write", element: <CreateReportPage /> },
       { path: "detail", element: <ReportDetailPage /> },
       { path: "search-result", element: <SearchResultPage /> },

@@ -5,10 +5,11 @@ import CalenderComp from "./calander-comp/CalenderComp";
 import { call } from "service/ApiService";
 import { Book } from "pages/MyReportPage/myreportpage-comps/MyBooks/MyBooksComp";
 import { useDispatch } from "react-redux";
-import { useFBO } from "@react-three/drei";
 import { closeSideBar } from "features/sideBar/sideBarSlice";
+import { useNavigate } from "react-router-dom";
 
-const CalendarPage: React.FC = () => {
+const CalendarPage = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const today = useRef<Date>(new Date());
   const [currentYear, setCurrentYear] = useState(today.current.getFullYear());
@@ -45,25 +46,37 @@ const CalendarPage: React.FC = () => {
 
   return (
     <div className={styles.page}>
-      <div className={styles.btngroup}>
-        <button onClick={prevMonthHandler}>
-          <BiSolidLeftArrow size={20} color="#3f2718" />
-        </button>
-        <span>{currentYear} 년</span> &nbsp;&nbsp;
-        <span>{currentMonth + 1} 월</span>
-        <button onClick={nextMonthHandler}>
-          <BiSolidRightArrow size={20} color="#3f2718" />
+      <div className={styles.chartBtnDiv}>
+        <button
+          className={styles.chartBtn}
+          onClick={() => {
+            navigate("/chart");
+          }}
+        >
+          차트 보기
         </button>
       </div>
-      <div className={styles["marks"]}>
-        <div className={styles["blue"]}>시작일</div>
-        <div className={styles["yellow"]}>종료일</div>
+      <div className={styles.calender}>
+        <div className={styles.btngroup}>
+          <button onClick={prevMonthHandler}>
+            <BiSolidLeftArrow size={20} color="#3f2718" />
+          </button>
+          <span>{currentYear} 년</span> &nbsp;&nbsp;
+          <span>{currentMonth + 1} 월</span>
+          <button onClick={nextMonthHandler}>
+            <BiSolidRightArrow size={20} color="#3f2718" />
+          </button>
+        </div>
+        <div className={styles["marks"]}>
+          <div className={styles["blue"]}>시작일</div>
+          <div className={styles["yellow"]}>종료일</div>
+        </div>
+        <CalenderComp
+          currentYear={currentYear}
+          currentMonth={currentMonth}
+          books={books}
+        />
       </div>
-      <CalenderComp
-        currentYear={currentYear}
-        currentMonth={currentMonth}
-        books={books}
-      />
     </div>
   );
 };
